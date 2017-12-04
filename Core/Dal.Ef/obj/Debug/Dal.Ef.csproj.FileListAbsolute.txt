@@ -1,0 +1,6 @@
+C:\Projets\Exercises\project-management\Core\Dal.Ef\bin\Debug\ProjectManagement.Dal.Ef.dll
+C:\Projets\Exercises\project-management\Core\Dal.Ef\bin\Debug\ProjectManagement.Dal.Ef.pdb
+C:\Projets\Exercises\project-management\Core\Dal.Ef\obj\Debug\Dal.Ef.csprojResolveAssemblyReference.cache
+C:\Projets\Exercises\project-management\Core\Dal.Ef\obj\Debug\Dal.Ef.csproj.CoreCompileInputs.cache
+C:\Projets\Exercises\project-management\Core\Dal.Ef\obj\Debug\ProjectManagement.Dal.Ef.dll
+C:\Projets\Exercises\project-management\Core\Dal.Ef\obj\Debug\ProjectManagement.Dal.Ef.pdb

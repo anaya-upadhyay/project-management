@@ -1,0 +1,7 @@
+C:\Projets\Exercises\project-management\Core\ProjectManagement.Domain\bin\Debug\ProjectManagement.Domain.dll
+C:\Projets\Exercises\project-management\Core\ProjectManagement.Domain\bin\Debug\ProjectManagement.Domain.pdb
+C:\Projets\Exercises\project-management\Core\ProjectManagement.Domain\bin\Debug\Conditions.dll
+C:\Projets\Exercises\project-management\Core\ProjectManagement.Domain\obj\Debug\ProjectManagement.Domain.csprojResolveAssemblyReference.cache
+C:\Projets\Exercises\project-management\Core\ProjectManagement.Domain\obj\Debug\ProjectManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Projets\Exercises\project-management\Core\ProjectManagement.Domain\obj\Debug\ProjectManagement.Domain.dll
+C:\Projets\Exercises\project-management\Core\ProjectManagement.Domain\obj\Debug\ProjectManagement.Domain.pdb

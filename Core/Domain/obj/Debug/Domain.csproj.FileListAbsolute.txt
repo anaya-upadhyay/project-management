@@ -1,0 +1,6 @@
+C:\Projets\Exercises\project-management\Core\Domain\bin\Debug\ProjectManagement.Domain.dll
+C:\Projets\Exercises\project-management\Core\Domain\bin\Debug\ProjectManagement.Domain.pdb
+C:\Projets\Exercises\project-management\Core\Domain\bin\Debug\Conditions.dll
+C:\Projets\Exercises\project-management\Core\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Projets\Exercises\project-management\Core\Domain\obj\Debug\ProjectManagement.Domain.dll
+C:\Projets\Exercises\project-management\Core\Domain\obj\Debug\ProjectManagement.Domain.pdb
