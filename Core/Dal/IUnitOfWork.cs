@@ -18,6 +18,6 @@ namespace ProjectManagement.Dal
         /// </summary>
         /// <typeparam name="TEntity">The Type of Entity to be used in this repository</typeparam>
         /// <returns>Returns an Active Repository for the Entity of type TEntity</returns>
-        IRepository<TEntity> CreateRepository<TEntity>();
+        IRepository<TEntity> CreateRepository<TEntity>() where TEntity : class;
     }
 }

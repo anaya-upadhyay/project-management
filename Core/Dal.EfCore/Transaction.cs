@@ -1,26 +1,28 @@
-﻿namespace ProjectManagement.Dal.Nhb
+﻿using Microsoft.EntityFrameworkCore.Storage;
+
+namespace ProjectManagement.Dal.EfCore
 {
     /// <summary>
-    /// Implementation of a Generic transaction contract using NHibernate
+    ///     Implementation of a Generic transaction contract using Entity Framework Core
     /// </summary>
     public sealed class Transaction : ITransaction
     {
         /// <summary>
-        /// The unerlying NHibernate transaction
+        ///     The Unerlying Entity Framework Core transaction
         /// </summary>
-        private readonly NHibernate.ITransaction transaction;
+        private readonly IDbContextTransaction transaction;
 
         /// <summary>
-        /// Create a new Generic Transaction by using an underlying NHibernate transaction
+        ///     Create a new Generic Transaction by using an underlying Entity Framework Core transaction
         /// </summary>
         /// <param name="transaction">Return an instance of an ITransaction contract</param>
-        public Transaction(NHibernate.ITransaction transaction)
+        public Transaction(IDbContextTransaction transaction)
         {
             this.transaction = transaction;
         }
 
         /// <summary>
-        /// Dispose the current transaction
+        ///     Dispose the current transaction
         /// </summary>
         public void Dispose()
         {
@@ -28,7 +30,7 @@
         }
 
         /// <summary>
-        /// Commit the current transaction
+        ///     Commit the current transaction
         /// </summary>
         public void Commit()
         {
@@ -36,7 +38,7 @@
         }
 
         /// <summary>
-        /// Rollback the current transaction
+        ///     Rollback the current transaction
         /// </summary>
         public void Rollback()
         {

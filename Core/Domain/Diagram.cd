@@ -22,5 +22,13 @@
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="ProjectManagement.Domain.Events.ProjectCreated" Collapsed="true">
+    <Position X="1" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events\ProjectCreated.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

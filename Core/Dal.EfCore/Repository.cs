@@ -1,22 +1,23 @@
-﻿using System.Linq;
-using NHibernate;
+﻿using System;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
-namespace ProjectManagement.Dal.Nhb
+namespace ProjectManagement.Dal.EfCore
 {
     /// <summary>
-    /// A Repository using the underlying NHibernate
+    /// A Repository using the underlying Entity Framework Core
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public sealed class Repository<TEntity> : IRepository<TEntity>
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         /// <summary>
-        /// The underlying NHibernate session
+        /// The underlying Entity Framework Core session
         /// </summary>
-        private readonly ISession session;
+        private readonly DbContext context;
 
-        public Repository(ISession session)
+        public Repository(DbContext context)
         {
-            this.session = session;
+            this.context = context;
         }
 
         public void Dispose()
@@ -25,21 +26,23 @@ namespace ProjectManagement.Dal.Nhb
         }
 
         /// <summary>
-        /// Add an Entity to the NHibernate Session
+        /// Add an Entity to the Entity Framework Core Session
         /// </summary>
         /// <param name="entity">The Entity to be added</param>
         public void Add(TEntity entity)
         {
-            session.Save(entity);
+            this.context.Set<TEntity>().Add(entity);
+            this.context.SaveChanges();
         }
 
         /// <summary>
-        /// Delete an Entity from the NHibernate Session
+        /// Delete an Entity from the Entity Framework Core Session
         /// </summary>
         /// <param name="entity">The Entity to be deleted</param>
         public void Delete(TEntity entity)
         {
-            session.Delete(entity);
+            context.Set<TEntity>().Remove(entity);
+            this.context.SaveChanges();
         }
 
         /// <summary>
@@ -48,7 +51,7 @@ namespace ProjectManagement.Dal.Nhb
         /// <returns>Return an IQueryable of TEntity</returns>
         public IQueryable<TEntity> Get()
         {
-            return session.Query<TEntity>();
+            return context.Set<TEntity>().AsQueryable();
         }
     }
 }

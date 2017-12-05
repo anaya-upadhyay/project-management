@@ -11,8 +11,18 @@ namespace ProjectManagement.Domain.Tests
     public class DomainEventsTests
     {
         [TestMethod]
+        public void Should_InitializeAction_When_FirstRegister()
+        {
+            DomainEvents.Register<FakeEvent>(x => Console.Write("Registered"));
+            var actions = (List<Delegate>)typeof(DomainEvents).GetField("actions", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
+
+            actions.Should().NotBeNull();
+        }
+
+        [TestMethod]
         public void Should_AddEvent_ToListOf_RegisteredEvents()
         {
+            DomainEvents.ClearCallbacks();
             DomainEvents.Register<FakeEvent>(x => Console.Write("Registered"));
 
             var actions = (List<Delegate>) typeof(DomainEvents).GetField("actions", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);

@@ -10,6 +10,9 @@ namespace ProjectManagement.Domain
     /// </summary>
     public sealed class Donor : IEntity
     {
+        private Guid id;
+        private string name;
+
         /// <summary>
         ///     For OR/M usage
         /// </summary>
@@ -26,15 +29,15 @@ namespace ProjectManagement.Domain
             name.Requires().IsNotNullOrEmpty();
 
             // initialization
-            Id = Guid.NewGuid();
+            id = Guid.NewGuid();
             Projects = new List<ProjectAggregate>();
-            Name = name;
+            this.name = name;
         }
 
         /// <summary>
         ///     The Unique Name of the Donor
         /// </summary>
-        public string Name { get; }
+        public string Name => name;
 
         /// <summary>
         ///     The List of Projects funded by a Donor
@@ -45,7 +48,7 @@ namespace ProjectManagement.Domain
         /// <summary>
         ///     The Unique Id of the Donor
         /// </summary>
-        public Guid Id { get; }
+        public Guid Id => id;
 
         /// <summary>
         ///     Assign a Project to the related Donor
