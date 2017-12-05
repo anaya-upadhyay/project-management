@@ -22,7 +22,7 @@ namespace ProjectManagement.Domain
         /// </summary>
         /// <param name="donor">The Donor which funded the Project</param>
         /// <param name="acronym">The Acronym of the Project</param>
-        public ProjectAggregate(Donor donor, string acronym)
+        public ProjectAggregate(Donor donor, string acronym, ProjectType projectType)
         {
             // pre-conditions
             donor.Requires("Donor").IsNotNull();
@@ -32,6 +32,7 @@ namespace ProjectManagement.Domain
             Id = Guid.NewGuid();
             Donor = donor;
             Acronym = acronym;
+            ProjectType = projectType;
 
             // associations
             Donor.AssignProjectToDonor(this);
@@ -54,5 +55,10 @@ namespace ProjectManagement.Domain
         ///     The Unique Id of the Project
         /// </summary>
         public Guid Id { get; }
+
+        /// <summary>
+        /// The Type of Project used to classify
+        /// </summary>
+        public ProjectType ProjectType { get; }
     }
 }

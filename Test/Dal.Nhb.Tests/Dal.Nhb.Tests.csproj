@@ -81,6 +81,7 @@
     <Compile Include="Core\BaseTest.cs" />
     <Compile Include="Mappings\DonorMappingTests.cs" />
     <Compile Include="Mappings\ProjectMappingTests.cs" />
+    <Compile Include="Mappings\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\SessionFactory.cs" />
     <Compile Include="TransactionTests.cs" />

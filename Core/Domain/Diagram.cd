@@ -1,20 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ProjectManagement.Domain.ProjectAggregate">
-    <Position X="1" Y="1.25" Width="1.75" />
+    <Position X="3.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAQAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAQAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ProjectAggregate.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Donor" />
+      <Property Name="ProjectType" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProjectManagement.Domain.Donor">
-    <Position X="4.5" Y="1.25" Width="2" />
+    <Position X="6.5" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="id" Hidden="true" />
+      <Field Name="name" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>ACACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>ACACAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAwA=</HashCode>
       <FileName>Donor.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -23,12 +31,44 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProjectManagement.Domain.Events.ProjectCreated" Collapsed="true">
-    <Position X="1" Y="3.5" Width="1.5" />
+    <Position X="3.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Events\ProjectCreated.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="ProjectManagement.Domain.Person">
+    <Position X="3.25" Y="5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectManagement.Domain.Analyst" Collapsed="true">
+    <Position X="5.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Analyst.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectManagement.Domain.Consultant" Collapsed="true">
+    <Position X="5.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Consultant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ProjectManagement.Domain.ProjectType">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProjectType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

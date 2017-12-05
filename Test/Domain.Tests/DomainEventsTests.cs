@@ -7,6 +7,7 @@ using ProjectManagement.Domain.Events;
 
 namespace ProjectManagement.Domain.Tests
 {
+    [TestCategory("Domain")]
     [TestClass]
     public class DomainEventsTests
     {

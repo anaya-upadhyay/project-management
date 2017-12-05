@@ -10,6 +10,7 @@ namespace ProjectManagement.Dal.Nhb.Mappings
             Table("Projects");
             Id(x => x.Id);
             Map(x => x.Acronym).Not.Nullable();
+            Map(x => x.ProjectType);
             References(x => x.Donor)
                 .Not.Nullable()
                 .Column("DonorId")

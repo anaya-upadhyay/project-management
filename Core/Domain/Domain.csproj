@@ -43,12 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analyst.cs" />
+    <Compile Include="Consultant.cs" />
     <Compile Include="Donor.cs" />
     <Compile Include="Events\DomainEvents.cs" />
     <Compile Include="Events\ProjectCreated.cs" />
     <Compile Include="IDomainEvent.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="ProjectAggregate.cs" />
+    <Compile Include="ProjectType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

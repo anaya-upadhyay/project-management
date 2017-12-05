@@ -16,13 +16,13 @@ namespace ProjectManagement.Domain.Tests.Entities
         public void Initialize()
         {
             fakeDonor = new Donor("some name");
-            expectedProject = new ProjectAggregate(fakeDonor, "acronym");
+            expectedProject = new ProjectAggregate(fakeDonor, "acronym", ProjectType.TaPackage);
         }
 
         [TestMethod]
         public void Should_ThrowException_When_Acronym_IsEmpty()
         {
-            Action expected = () => new ProjectAggregate(fakeDonor, string.Empty);
+            Action expected = () => new ProjectAggregate(fakeDonor, string.Empty, ProjectType.TaPackage);
 
             expected.ShouldThrow<ArgumentException>().Which.ParamName.Contains("Donor");
         }
@@ -30,7 +30,7 @@ namespace ProjectManagement.Domain.Tests.Entities
         [TestMethod]
         public void Should_ThrowException_When_Donor_IsNull()
         {
-            Action expected = () => new ProjectAggregate(null, "acronym");
+            Action expected = () => new ProjectAggregate(null, "acronym", ProjectType.TaPackage);
 
             expected.ShouldThrow<ArgumentException>().Which.ParamName.Contains("Acronym");
         }
@@ -39,6 +39,12 @@ namespace ProjectManagement.Domain.Tests.Entities
         public void Should_Assign_Acronym()
         {
             expectedProject.Acronym.Should().Be("acronym");
+        }
+
+        [TestMethod]
+        public void Should_Assign_Type()
+        {
+            expectedProject.ProjectType.Should().Be(ProjectType.TaPackage);
         }
 
         [TestMethod]
@@ -65,7 +71,7 @@ namespace ProjectManagement.Domain.Tests.Entities
             ProjectAggregate expected = null;
             DomainEvents.Register<ProjectCreated>(p => expected = p.Project);
 
-            var project = new ProjectAggregate(fakeDonor, "acronym");
+            var project = new ProjectAggregate(fakeDonor, "acronym", ProjectType.TaPackage);
 
             expected.Should().NotBeNull();
             expected.Should().Be(project);

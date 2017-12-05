@@ -14,7 +14,7 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
         public void Should_Save_New_Project()
         {
             var donor = new Donor("My Donor");
-            var project = new ProjectAggregate(donor, "My Project");
+            var project = new ProjectAggregate(donor, "My Project", ProjectType.TaPackage);
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
