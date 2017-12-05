@@ -1,5 +1,0 @@
-C:\Projets\Exercises\project-management\Core\Dal\bin\Debug\ProjectManagement.Dal.dll
-C:\Projets\Exercises\project-management\Core\Dal\bin\Debug\ProjectManagement.Dal.pdb
-C:\Projets\Exercises\project-management\Core\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
-C:\Projets\Exercises\project-management\Core\Dal\obj\Debug\ProjectManagement.Dal.dll
-C:\Projets\Exercises\project-management\Core\Dal\obj\Debug\ProjectManagement.Dal.pdb
