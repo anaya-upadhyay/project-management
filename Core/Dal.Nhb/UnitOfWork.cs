@@ -1,5 +1,4 @@
-﻿using System;
-using NHibernate;
+﻿using NHibernate;
 
 namespace ProjectManagement.Dal.Nhb
 {
@@ -22,7 +21,7 @@ namespace ProjectManagement.Dal.Nhb
 
         public IRepository<TEntity> CreateRepository<TEntity>()
         {
-            return new Repository<TEntity>(this.session);
+            return new Repository<TEntity>(session);
         }
 
         public void Dispose()

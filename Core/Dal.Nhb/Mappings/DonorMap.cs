@@ -7,6 +7,7 @@ namespace ProjectManagement.Dal.Nhb.Mappings
     {
         public DonorMap()
         {
+            Table("Donors");
             Id(x => x.Id);
             Map(x => x.Name).Not.Nullable();
         }

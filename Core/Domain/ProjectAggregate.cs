@@ -10,6 +10,14 @@ namespace ProjectManagement.Domain
     public sealed class ProjectAggregate : IEntity
     {
         /// <summary>
+        ///     For OR/M usage
+        /// </summary>
+        private ProjectAggregate()
+        {
+            
+        }
+
+        /// <summary>
         ///     Create a new Project Aggregate instance
         /// </summary>
         /// <param name="donor">The Donor which funded the Project</param>

@@ -11,11 +11,10 @@ namespace ProjectManagement.Domain
     public sealed class Donor : IEntity
     {
         /// <summary>
-        /// For OR/M usage
+        ///     For OR/M usage
         /// </summary>
-        protected Donor()
+        private Donor()
         {
-            
         }
 
         /// <summary>

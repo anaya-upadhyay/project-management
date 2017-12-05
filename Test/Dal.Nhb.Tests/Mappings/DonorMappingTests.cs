@@ -1,44 +1,15 @@
 ﻿using System.Linq;
 using FluentAssertions;
-using FluentNHibernate.Cfg;
-using FluentNHibernate.Cfg.Db;
-using FluentNHibernate.Conventions.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NHibernate;
-using NHibernate.Tool.hbm2ddl;
+using ProjectManagement.Dal.Nhb.Tests.Core;
 using ProjectManagement.Domain;
 
-namespace ProjectManagement.Dal.Nhb.Tests
+namespace ProjectManagement.Dal.Nhb.Tests.Mappings
 {
     [TestCategory("Dal.Nhb")]
     [TestClass]
-    public class DonorMappingTests
+    public class DonorMappingTests : BaseTest
     {
-        private ISessionFactory sessionFactory;
-
-        [TestInitialize]
-        public void Initialize()
-        {
-            sessionFactory = Fluently
-                .Configure()
-                .Database(
-                    MsSqlConfiguration
-                    .MsSql2012
-                    .ConnectionString(conn => conn.FromConnectionStringWithKey("connection")))
-                .Mappings(m => 
-                    m.FluentMappings
-                    .AddFromAssemblyOf<UnitOfWork>()
-                    .Conventions.Add(DefaultLazy.Never()))
-                .ExposeConfiguration(cfg => 
-                    new SchemaExport(cfg).Create(true, true))
-                .BuildSessionFactory();
-        }
-
-        private ISession GetSession()
-        {
-            return sessionFactory.OpenSession();
-        }
-
         [TestMethod]
         public void Should_Save_New_Donor()
         {
