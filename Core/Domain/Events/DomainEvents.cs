@@ -29,7 +29,7 @@ namespace ProjectManagement.Domain.Events
         /// </summary>
         public static void ClearCallbacks()
         {
-            actions = null;
+            actions = new List<Delegate>();
         }
 
         /// <summary>

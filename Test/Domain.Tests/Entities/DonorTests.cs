@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ProjectManagement.Domain.Tests
+namespace ProjectManagement.Domain.Tests.Entities
 {
     [TestCategory("Domain")]
     [TestClass]

@@ -3,7 +3,7 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectManagement.Domain.Events;
 
-namespace ProjectManagement.Domain.Tests
+namespace ProjectManagement.Domain.Tests.Entities
 {
     [TestCategory("Domain")]
     [TestClass]
