@@ -9,6 +9,13 @@ namespace ProjectManagement.Domain
     public abstract class Person : IEntity
     {
         /// <summary>
+        ///     For OR/M usage
+        /// </summary>
+        protected Person()
+        {
+        }
+
+        /// <summary>
         ///     Create and Initialize a new Person record
         /// </summary>
         /// <param name="firstName">The FirstName to be assigned</param>
