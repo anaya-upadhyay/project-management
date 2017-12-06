@@ -1,0 +1,67 @@
+@using System.Web.Http
+@using System.Web.Http.Description
+@using Api.Http.Areas.HelpPage.Models
+@using Api.Http.Areas.HelpPage.ModelDescriptions
+@model HelpPageApiModel
+
+@{
+    ApiDescription description = Model.ApiDescription;
+}
+<h4>@description.HttpMethod.Method @description.RelativePath</h4>
+<div>
+    <p>@description.Documentation</p>
+
+    <h4>Request Information</h4>
+
+    <h5>URI Parameters</h5>
+    @Html.DisplayFor(m => m.UriParameters, "Parameters")
+
+    <h5>Body Parameters</h5>
+
+    <p>@Model.RequestDocumentation</p>
+
+    @if (Model.RequestModelDescription != null)
+    {
+        @Html.DisplayFor(m => m.RequestModelDescription.ModelType, "ModelDescriptionLink", new { modelDescription = Model.RequestModelDescription })
+        if (Model.RequestBodyParameters != null)
+        {
+            @Html.DisplayFor(m => m.RequestBodyParameters, "Parameters")
+        }
+    }
+    else
+    {
+        <p>None.</p>
+    }
+
+    @if (Model.SampleRequests.Count > 0)
+    {
+        <h5>Request Formats</h5>
+        @Html.DisplayFor(m => m.SampleRequests, "Samples")
+    }
+
+    <h4>Response Information</h4>
+
+    <h5>Resource Description</h5>
+
+    <p>@description.ResponseDescription.Documentation</p>
+
+    @if (Model.ResourceDescription != null)
+    {
+        @Html.DisplayFor(m => m.ResourceDescription.ModelType, "ModelDescriptionLink", new { modelDescription = Model.ResourceDescription })
+        if (Model.ResourceProperties != null)
+        {
+            @Html.DisplayFor(m => m.ResourceProperties, "Parameters")
+        }
+    }
+    else
+    {
+        <p>None.</p>
+    }
+
+    @if (Model.SampleResponses.Count > 0)
+    {
+        <h5>Response Formats</h5>
+        @Html.DisplayFor(m => m.SampleResponses, "Samples")
+    }
+
+</div>

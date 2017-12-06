@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProjectManagement.Domain</name>
+    </assembly>
+    <members>
+        <member name="M:ProjectManagement.Domain.Analyst.#ctor">
+            <summary>
+                For OR/M usage
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.Analyst.#ctor(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ProjectManagement.Domain.Consultant.#ctor">
+            <summary>
+                For OR/M usage
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.Consultant.#ctor(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:ProjectManagement.Domain.Core.IDomainEvent">
+            <summary>
+                An Event raised by one or more Domain Entities
+            </summary>
+        </member>
+        <member name="T:ProjectManagement.Domain.Core.IEntity">
+            <summary>
+                Represent an Entity inside the Domain
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.Core.IEntity.Id">
+            <summary>
+                The Unique Identifier of the Entity
+            </summary>
+        </member>
+        <member name="T:ProjectManagement.Domain.DonorAggregate">
+            <inheritdoc />
+            <summary>
+                Represents a Donor which is in charge of disbursing money for one or more projects
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.DonorAggregate.#ctor">
+            <summary>
+                For OR/M usage
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.DonorAggregate.#ctor(System.String)">
+            <summary>
+                Private constructor used to initialize a new instance of the Entity
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.DonorAggregate.Name">
+            <summary>
+                The Unique Name of the Donor
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.DonorAggregate.Projects">
+            <summary>
+                The List of Projects funded by a Donor
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.DonorAggregate.Id">
+            <inheritdoc />
+            <summary>
+                The Unique Id of the Donor
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.DonorAggregate.AssignProjectToDonor(ProjectManagement.Domain.ProjectAggregate)">
+            <summary>
+                Assign a Project to the related Donor
+            </summary>
+            <param name="project">The Project to be assigned</param>
+        </member>
+        <member name="M:ProjectManagement.Domain.Events.DomainEvents.Register``1(System.Action{``0})">
+            <summary>
+                Registers a callback for the given domain event
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="callback"></param>
+        </member>
+        <member name="M:ProjectManagement.Domain.Events.DomainEvents.ClearCallbacks">
+            <summary>
+                Clears callbacks passed to Register on the current thread
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.Events.DomainEvents.Raise``1(``0)">
+            <summary>
+                Raises the given domain event
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="args"></param>
+        </member>
+        <member name="T:ProjectManagement.Domain.Events.ProjectCreated">
+            <summary>
+                Raised when a new Project is created and initialized
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.Events.ProjectCreated.Project">
+            <summary>
+                The Newly created Project
+            </summary>
+        </member>
+        <member name="T:ProjectManagement.Domain.Events.ProjectModified">
+            <summary>
+            Raised when a Project is modified
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.Events.ProjectModified.Project">
+            <summary>
+            The Modified Project
+            </summary>
+        </member>
+        <member name="T:ProjectManagement.Domain.Person">
+            <summary>
+                Represents a generic Person with a FirstName and a LastName
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.Person.#ctor">
+            <summary>
+                For OR/M usage
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.Person.#ctor(System.String,System.String)">
+            <summary>
+                Create and Initialize a new Person record
+            </summary>
+            <param name="firstName">The FirstName to be assigned</param>
+            <param name="lastName">The LastName to be assigned</param>
+        </member>
+        <member name="P:ProjectManagement.Domain.Person.FirstName">
+            <summary>
+                The FirstName of the Person
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.Person.LastName">
+            <summary>
+                The LastName of the Person
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.Person.Id">
+            <summary>
+                The Unique Id of the Entity
+            </summary>
+        </member>
+        <member name="T:ProjectManagement.Domain.ProjectAggregate">
+            <summary>
+                Represents a Project Aggregate
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.ProjectAggregate.#ctor">
+            <summary>
+                For OR/M usage
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.ProjectAggregate.#ctor(ProjectManagement.Domain.DonorAggregate,ProjectManagement.Domain.Analyst,System.String,ProjectManagement.Domain.TypeOfProject,ProjectManagement.Domain.TypeOfTenderProcess,System.Nullable{System.DateTime})">
+            <summary>
+                Create a new Project Aggregate instance
+            </summary>
+            <param name="donor">The Donor which funded the Project</param>
+            <param name="analyst">The Analyst associated to the Project</param>
+            <param name="acronym">The Acronym of the Project</param>
+            <param name="projectType">The Type of Project</param>
+            <param name="tenderProcessType">The Tender Process applied to the Project</param>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.TenderProcessType">
+            <summary>
+                The Type of Tender Process applied to the Project
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.ExpectedStartDate">
+            <summary>
+                The Initial Start Date set to the project, also known as "Expected"
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.Analyst">
+            <summary>
+                The Analyst responsible of the Project
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.Donor">
+            <summary>
+                The Donor in charge of disbursing the amount required by the Project
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.Acronym">
+            <summary>
+                The Acronym which represents a Project
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.ProjectType">
+            <summary>
+                The Type of Project used to classify
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.IsDeleted">
+            <summary>
+                Implementation of the Soft Delete contract
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Domain.ProjectAggregate.SetDeleted">
+            <summary>
+                Soft delete the record
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.Id">
+            <summary>
+                The Unique Id of the Project
+            </summary>
+        </member>
+        <member name="T:ProjectManagement.Domain.TypeOfProject">
+            <summary>
+                Represents one of the possible Project's type
+            </summary>
+        </member>
+    </members>
+</doc>

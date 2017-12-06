@@ -1,0 +1,31 @@
+@using System.Web.Http
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using Api.Http.Areas.HelpPage.Models
+@model Collection<ApiDescription>
+
+@{
+    ViewBag.Title = "ASP.NET Web API Help Page";
+
+    // Group APIs by controller
+    ILookup<HttpControllerDescriptor, ApiDescription> apiGroups = Model.ToLookup(api => api.ActionDescriptor.ControllerDescriptor);
+}
+
+<header>
+    <h1>@ViewBag.Title</h1>
+</header>
+
+<section class="featured">
+<h2>Introduction</h2>
+<p>
+    Provide a general description of your APIs here.
+</p>
+</section>
+
+<section class="content-wrapper main-content clear-fix">
+    @foreach (var group in apiGroups)
+    {
+        @Html.DisplayFor(m => group, "ApiGroup")
+    }
+</section>

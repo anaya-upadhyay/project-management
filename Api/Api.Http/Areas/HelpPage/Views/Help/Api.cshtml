@@ -1,0 +1,19 @@
+@using System.Web.Http
+@using Api.Http.Areas.HelpPage.Models
+@model HelpPageApiModel
+
+@{
+    var description = Model.ApiDescription;
+    ViewBag.Title = description.HttpMethod.Method + " " + description.RelativePath;
+}
+
+    <section>
+        <div>
+            <p>
+                @Html.ActionLink("Back", "Index")
+            </p>
+        </div>
+    </section>
+    <section>
+        @Html.DisplayForModel()
+    </section>
