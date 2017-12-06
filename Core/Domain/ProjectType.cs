@@ -3,7 +3,7 @@
     /// <summary>
     ///     Represents one of the possible Project's type
     /// </summary>
-    public enum ProjectType
+    public enum TypeOfProject
     {
         CustomizedSingle = 0,
         CustomizedMultifocus = 1,

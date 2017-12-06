@@ -8,18 +8,18 @@ namespace ProjectManagement.Domain.Tests.Entities
     [TestClass]
     public class DonorTests
     {
-        private Donor expectedDonor;
+        private DonorAggregate expectedDonor;
 
         [TestInitialize]
         public void Initialize()
         {
-            expectedDonor = new Donor("name");
+            expectedDonor = new DonorAggregate("name");
         }
 
         [TestMethod]
         public void Should_ThrowException_When_Name_IsEmpty()
         {
-            Action expected = () => new Donor(string.Empty);
+            Action expected = () => new DonorAggregate(string.Empty);
 
             expected.ShouldThrow<ArgumentException>().Which.ParamName.Contains("Name");
         }

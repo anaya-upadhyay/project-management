@@ -1,5 +1,6 @@
 ﻿using System;
 using Conditions;
+using ProjectManagement.Domain.Core;
 
 namespace ProjectManagement.Domain
 {

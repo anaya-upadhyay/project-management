@@ -2,7 +2,10 @@
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Conventions.Helpers;
 using NHibernate;
+using NHibernate.Event;
 using NHibernate.Tool.hbm2ddl;
+using ProjectManagement.Dal.Nhb.Interceptors;
+using ProjectManagement.Dal.Nhb.Listeners;
 
 namespace ProjectManagement.Dal.Nhb.Tests.Core
 {
@@ -20,7 +23,12 @@ namespace ProjectManagement.Dal.Nhb.Tests.Core
                     m.FluentMappings
                         .AddFromAssemblyOf<UnitOfWork>()
                         .Conventions.Add(DefaultLazy.Never()))
-                .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
+                .ExposeConfiguration(cfg =>
+                {
+                    cfg.SetInterceptor(new SqlStatementInterceptor());
+                    cfg.EventListeners.PreDeleteEventListeners = new IPreDeleteEventListener[] { new SoftDeletableListener() };
+                    new SchemaExport(cfg).Create(false, true); // generate the DB schema but do not trace
+                })
                 .BuildSessionFactory();
         }
     }

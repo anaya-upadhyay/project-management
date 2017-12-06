@@ -13,16 +13,21 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
         [TestMethod]
         public void Should_Save_New_Project()
         {
-            var donor = new Donor("My Donor");
-            var project = new ProjectAggregate(donor, "My Project", ProjectType.TaPackage);
+            var donor = new DonorAggregate("My Donor");
+            var analyst = new Analyst("firstName", "lastName");
+            var project = new ProjectAggregate(donor, analyst, "My Project", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
                 using (var tx = uow.BeginTransaction())
                 {
-                    using (var repo = uow.CreateRepository<Donor>())
+                    using (var repo = uow.CreateRepository<DonorAggregate>())
                     {
                         repo.Add(donor);
+                    }
+                    using (var repo = uow.CreateRepository<Person>())
+                    {
+                        repo.Add(analyst);
                     }
                     using (var repo = uow.CreateRepository<ProjectAggregate>())
                     {
@@ -39,6 +44,55 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
 
                 expected.Should().NotBeNull();
             }
+        }
+
+        [TestMethod]
+        public void Should_SoftDelete_A_Project_When_RemovedWithARepository()
+        {
+            var donor = new DonorAggregate("My Donor");
+            var analyst = new Analyst("firstName", "lastName");
+            var project = new ProjectAggregate(donor, analyst, "My Project", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
+
+            using (IUnitOfWork uow = new UnitOfWork(GetSession()))
+            {
+                using (var tx = uow.BeginTransaction())
+                {
+                    using (var repo = uow.CreateRepository<DonorAggregate>())
+                    {
+                        repo.Add(donor);
+                    }
+                    using (var repo = uow.CreateRepository<Person>())
+                    {
+                        repo.Add(analyst);
+                    }
+                    using (var repo = uow.CreateRepository<ProjectAggregate>())
+                    {
+                        repo.Add(project);
+                    }
+                    tx.Commit();
+                }
+            }
+
+            using (IUnitOfWork uow = new UnitOfWork(GetSession()))
+            {
+                using (var tx = uow.BeginTransaction())
+                {
+                    using (var repo = uow.CreateRepository<ProjectAggregate>())
+                    {
+                        repo.Delete(project);
+                    }
+                    tx.Commit();
+                }
+            }
+
+            // force NHibernate to select a soft deleted object
+            var session = GetSession();
+            var expected = (ProjectAggregate)session
+                .CreateSQLQuery($"select proj.* from Projects proj where Id = '{project.Id}'")
+                .AddEntity("proj", typeof(ProjectAggregate))
+                .UniqueResult();
+            expected.Should().NotBeNull();
+            expected.IsDeleted.Should().BeTrue();
         }
     }
 }

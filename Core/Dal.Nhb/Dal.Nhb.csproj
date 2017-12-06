@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interceptors\SqlStatementInterceptor.cs" />
+    <Compile Include="Listeners\SoftDeletableListener.cs" />
     <Compile Include="Mappings\DonorMap.cs" />
     <Compile Include="Mappings\PersonMap.cs" />
     <Compile Include="Mappings\ProjectMap.cs" />

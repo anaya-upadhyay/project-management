@@ -13,13 +13,13 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
         [TestMethod]
         public void Should_Save_New_Donor()
         {
-            var donor = new Donor("Donor Name");
+            var donor = new DonorAggregate("Donor Name");
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
                 using (var tx = uow.BeginTransaction())
                 {
-                    using (var repo = uow.CreateRepository<Donor>())
+                    using (var repo = uow.CreateRepository<DonorAggregate>())
                     {
                         repo.Add(donor);
                         tx.Commit();
@@ -29,7 +29,7 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
-                var repo = uow.CreateRepository<Donor>();
+                var repo = uow.CreateRepository<DonorAggregate>();
                 var expected = repo.Get().Single(x => x.Id == donor.Id);
 
                 expected.Should().NotBeNull();
@@ -39,13 +39,13 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
         [TestMethod]
         public void Should_Delete_Existing_Donor()
         {
-            var donor = new Donor("Donor Name");
+            var donor = new DonorAggregate("Donor Name");
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
                 using (var tx = uow.BeginTransaction())
                 {
-                    using (var repo = uow.CreateRepository<Donor>())
+                    using (var repo = uow.CreateRepository<DonorAggregate>())
                     {
                         repo.Add(donor);
                         tx.Commit();
@@ -57,7 +57,7 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
             {
                 using (var tx = uow.BeginTransaction())
                 {
-                    using (var repo = uow.CreateRepository<Donor>())
+                    using (var repo = uow.CreateRepository<DonorAggregate>())
                     {
                         repo.Delete(donor);
                         tx.Commit();
@@ -67,7 +67,7 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
-                var repo = uow.CreateRepository<Donor>();
+                var repo = uow.CreateRepository<DonorAggregate>();
                 var expected = repo.Get().FirstOrDefault(x => x.Id == donor.Id);
 
                 expected.Should().BeNull();

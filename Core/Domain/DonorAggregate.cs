@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Conditions;
+using ProjectManagement.Domain.Core;
 
 namespace ProjectManagement.Domain
 {
@@ -8,7 +9,7 @@ namespace ProjectManagement.Domain
     /// <summary>
     ///     Represents a Donor which is in charge of disbursing money for one or more projects
     /// </summary>
-    public sealed class Donor : IEntity
+    public sealed class DonorAggregate : IEntity
     {
         private Guid id;
         private string name;
@@ -16,14 +17,14 @@ namespace ProjectManagement.Domain
         /// <summary>
         ///     For OR/M usage
         /// </summary>
-        private Donor()
+        private DonorAggregate()
         {
         }
 
         /// <summary>
         ///     Private constructor used to initialize a new instance of the Entity
         /// </summary>
-        public Donor(string name)
+        public DonorAggregate(string name)
         {
             // pre-conditions
             name.Requires().IsNotNullOrEmpty();

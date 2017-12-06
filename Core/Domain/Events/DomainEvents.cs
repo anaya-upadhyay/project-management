@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProjectManagement.Domain.Core;
 
 namespace ProjectManagement.Domain.Events
 {

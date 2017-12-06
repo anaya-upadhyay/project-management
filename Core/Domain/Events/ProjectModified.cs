@@ -3,12 +3,12 @@
 namespace ProjectManagement.Domain.Events
 {
     /// <summary>
-    ///     Raised when a new Project is created and initialized
+    /// Raised when a Project is modified
     /// </summary>
-    public sealed class ProjectCreated : IDomainEvent
+    public sealed class ProjectModified : IDomainEvent
     {
         /// <summary>
-        ///     The Newly created Project
+        /// The Modified Project
         /// </summary>
         public ProjectAggregate Project { get; set; }
     }

@@ -10,19 +10,21 @@ namespace ProjectManagement.Domain.Tests.Entities
     public class ProjectAggregateTests
     {
         private ProjectAggregate expectedProject;
-        private Donor fakeDonor;
+        private DonorAggregate fakeDonor;
+        private Analyst fakeAnalyst;
 
         [TestInitialize]
         public void Initialize()
         {
-            fakeDonor = new Donor("some name");
-            expectedProject = new ProjectAggregate(fakeDonor, "acronym", ProjectType.TaPackage);
+            fakeDonor = new DonorAggregate("some name");
+            fakeAnalyst = new Analyst("firstName", "lastName");
+            expectedProject = new ProjectAggregate(fakeDonor, fakeAnalyst, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
         }
 
         [TestMethod]
         public void Should_ThrowException_When_Acronym_IsEmpty()
         {
-            Action expected = () => new ProjectAggregate(fakeDonor, string.Empty, ProjectType.TaPackage);
+            Action expected = () => new ProjectAggregate(fakeDonor, fakeAnalyst, string.Empty, TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
 
             expected.ShouldThrow<ArgumentException>().Which.ParamName.Contains("Donor");
         }
@@ -30,9 +32,17 @@ namespace ProjectManagement.Domain.Tests.Entities
         [TestMethod]
         public void Should_ThrowException_When_Donor_IsNull()
         {
-            Action expected = () => new ProjectAggregate(null, "acronym", ProjectType.TaPackage);
+            Action expected = () => new ProjectAggregate(null, fakeAnalyst, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
 
-            expected.ShouldThrow<ArgumentException>().Which.ParamName.Contains("Acronym");
+            expected.ShouldThrow<ArgumentException>().Which.ParamName.Contains("Donor");
+        }
+
+        [TestMethod]
+        public void Should_ThrowException_When_Analyst_IsNull()
+        {
+            Action expected = () => new ProjectAggregate(fakeDonor, null, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
+
+            expected.ShouldThrow<ArgumentException>().Which.ParamName.Contains("Analyst");
         }
 
         [TestMethod]
@@ -44,7 +54,7 @@ namespace ProjectManagement.Domain.Tests.Entities
         [TestMethod]
         public void Should_Assign_Type()
         {
-            expectedProject.ProjectType.Should().Be(ProjectType.TaPackage);
+            expectedProject.ProjectType.Should().Be(TypeOfProject.TaPackage);
         }
 
         [TestMethod]
@@ -66,12 +76,30 @@ namespace ProjectManagement.Domain.Tests.Entities
         }
 
         [TestMethod]
+        public void Should_Assign_StartDate_When_Provided()
+        {
+            DateTime startDate = DateTime.UtcNow;
+            var expected = new ProjectAggregate(fakeDonor, fakeAnalyst, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure, startDate);
+
+            expected.ExpectedStartDate.Should().Be(startDate);
+        }
+
+        [TestMethod]
+        public void Should_Assign_UtcNow_When_NotProvided()
+        {
+            DateTime startDate = DateTime.UtcNow;
+            var expected = new ProjectAggregate(fakeDonor, fakeAnalyst, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure, startDate);
+
+            expected.ExpectedStartDate.Should().BeOnOrAfter(startDate);
+        }
+
+        [TestMethod]
         public void Should_RaiseEvent_When_Created()
         {
             ProjectAggregate expected = null;
             DomainEvents.Register<ProjectCreated>(p => expected = p.Project);
 
-            var project = new ProjectAggregate(fakeDonor, "acronym", ProjectType.TaPackage);
+            var project = new ProjectAggregate(fakeDonor, fakeAnalyst, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
 
             expected.Should().NotBeNull();
             expected.Should().Be(project);

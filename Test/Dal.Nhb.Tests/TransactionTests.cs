@@ -9,12 +9,12 @@ namespace ProjectManagement.Dal.Nhb.Tests
     [TestClass]
     public class TransactionTests : BaseTest
     {
-        private Donor donor;
+        private DonorAggregate donor;
 
         [TestInitialize]
         public void Initialize()
         {
-            donor = new Donor("name");
+            donor = new DonorAggregate("name");
         }
 
         [TestMethod]
@@ -24,14 +24,14 @@ namespace ProjectManagement.Dal.Nhb.Tests
             {
                 using (ITransaction tx = uow.BeginTransaction())
                 {
-                    var repo = uow.CreateRepository<Donor>();
+                    var repo = uow.CreateRepository<DonorAggregate>();
                     repo.Add(donor);
                     tx.Rollback();
                 }
             }
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
-                var repo = uow.CreateRepository<Donor>();
+                var repo = uow.CreateRepository<DonorAggregate>();
                 var expected = repo.Get().FirstOrDefault(x => x.Id == donor.Id);
                 expected.Should().BeNull();
             }
@@ -44,14 +44,14 @@ namespace ProjectManagement.Dal.Nhb.Tests
             {
                 using (ITransaction tx = uow.BeginTransaction())
                 {
-                    var repo = uow.CreateRepository<Donor>();
+                    var repo = uow.CreateRepository<DonorAggregate>();
                     repo.Add(donor);
                     tx.Commit();
                 }
             }
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
-                var repo = uow.CreateRepository<Donor>();
+                var repo = uow.CreateRepository<DonorAggregate>();
                 var expected = repo.Get().FirstOrDefault(x => x.Id == donor.Id);
                 expected.Should().NotBeNull();
             }

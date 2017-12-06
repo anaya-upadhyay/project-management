@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProjectManagement.Domain.Core;
 using ProjectManagement.Domain.Events;
 
 namespace ProjectManagement.Domain.Tests

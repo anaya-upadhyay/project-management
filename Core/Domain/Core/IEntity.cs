@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProjectManagement.Domain
+namespace ProjectManagement.Domain.Core
 {
     /// <summary>
     ///     Represent an Entity inside the Domain

@@ -4,9 +4,9 @@ using ProjectManagement.Domain;
 
 namespace ProjectManagement.Dal.EfCore.Mapping
 {
-    public sealed class DonorMap : IEntityTypeConfiguration<Donor>
+    public sealed class DonorMap : IEntityTypeConfiguration<DonorAggregate>
     {
-        public void Configure(EntityTypeBuilder<Donor> builder)
+        public void Configure(EntityTypeBuilder<DonorAggregate> builder)
         {
             builder.ToTable("Donors");
             builder.HasKey(x => x.Id);

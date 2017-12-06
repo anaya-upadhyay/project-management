@@ -1,37 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ProjectManagement.Domain.ProjectAggregate">
-    <Position X="3.25" Y="0.5" Width="1.75" />
+    <Position X="6" Y="2.25" Width="1.75" />
+    <Members>
+      <Property Name="IsDeleted" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAQAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAEAAQAAAABABAAAABEAAAABAAAAAAAAQAAAAA=</HashCode>
       <FileName>ProjectAggregate.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Donor" />
+      <Property Name="TenderProcessType" />
+      <Property Name="Analyst" />
       <Property Name="ProjectType" />
+      <Property Name="Donor" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ProjectManagement.Domain.Donor">
-    <Position X="6.5" Y="0.5" Width="2" />
-    <Members>
-      <Field Name="id" Hidden="true" />
-      <Field Name="name" Hidden="true" />
-    </Members>
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>ACACAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAwA=</HashCode>
-      <FileName>Donor.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Projects" />
-    </ShowAsCollectionAssociation>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="ProjectManagement.Domain.Events.ProjectCreated" Collapsed="true">
-    <Position X="3.25" Y="2.75" Width="1.5" />
+    <Position X="7.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Events\ProjectCreated.cs</FileName>
@@ -39,7 +26,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProjectManagement.Domain.Person">
-    <Position X="3.25" Y="5" Width="1.5" />
+    <Position X="0.5" Y="5.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -50,24 +37,47 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProjectManagement.Domain.Analyst" Collapsed="true">
-    <Position X="5.5" Y="5" Width="1.5" />
+    <Position X="2.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Analyst.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjectManagement.Domain.Consultant" Collapsed="true">
-    <Position X="5.5" Y="6" Width="1.5" />
+    <Position X="2.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Consultant.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="ProjectManagement.Domain.ProjectType">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="ProjectManagement.Domain.DonorAggregate" Collapsed="true">
+    <Position X="8.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAwA=</HashCode>
+      <FileName>DonorAggregate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjectManagement.Domain.Events.ProjectModified" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events\ProjectModified.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Enum Name="ProjectManagement.Domain.TypeOfProject">
+    <Position X="1" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ProjectType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ProjectManagement.Domain.TypeOfTenderProcess">
+    <Position X="2.75" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAgAAAAAAAIAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeOfTenderProcess.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
