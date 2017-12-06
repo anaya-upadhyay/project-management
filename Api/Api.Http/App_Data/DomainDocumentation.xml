@@ -102,16 +102,6 @@
                 The Newly created Project
             </summary>
         </member>
-        <member name="T:ProjectManagement.Domain.Events.ProjectModified">
-            <summary>
-            Raised when a Project is modified
-            </summary>
-        </member>
-        <member name="P:ProjectManagement.Domain.Events.ProjectModified.Project">
-            <summary>
-            The Modified Project
-            </summary>
-        </member>
         <member name="T:ProjectManagement.Domain.Person">
             <summary>
                 Represents a generic Person with a FirstName and a LastName

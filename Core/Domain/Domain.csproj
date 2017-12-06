@@ -52,7 +52,6 @@
     <Compile Include="Events\ProjectCreated.cs" />
     <Compile Include="Core\IDomainEvent.cs" />
     <Compile Include="Core\IEntity.cs" />
-    <Compile Include="Events\ProjectModified.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="ProjectAggregate.cs" />
     <Compile Include="ProjectType.cs" />

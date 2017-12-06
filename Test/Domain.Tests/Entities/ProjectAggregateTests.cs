@@ -52,9 +52,21 @@ namespace ProjectManagement.Domain.Tests.Entities
         }
 
         [TestMethod]
-        public void Should_Assign_Type()
+        public void Should_Assign_TypeOfProject()
         {
             expectedProject.ProjectType.Should().Be(TypeOfProject.TaPackage);
+        }
+
+        [TestMethod]
+        public void Should_Assign_TypeOfTenderProcess()
+        {
+            expectedProject.TenderProcessType.Should().Be(TypeOfTenderProcess.NegotiatedProcedure);
+        }
+
+        [TestMethod]
+        public void Should_Assign_Analyst()
+        {
+            expectedProject.Analyst.Should().Be(fakeAnalyst);
         }
 
         [TestMethod]
@@ -104,5 +116,6 @@ namespace ProjectManagement.Domain.Tests.Entities
             expected.Should().NotBeNull();
             expected.Should().Be(project);
         }
+
     }
 }
