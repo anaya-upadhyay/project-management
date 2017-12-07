@@ -1,7 +1,7 @@
 ﻿using System;
-using Api.Commands.Core;
+using ProjectManagement.Api.Commands.Core;
 
-namespace Api.Commands
+namespace ProjectManagement.Api.Commands
 {
     /// <inheritdoc />
     /// <summary>

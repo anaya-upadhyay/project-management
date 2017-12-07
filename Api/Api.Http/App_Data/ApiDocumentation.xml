@@ -513,11 +513,11 @@
             <param name="projectId">The Unique Id of the Project</param>
             <remarks>The Project is not physically deleted, but de-activated</remarks>
         </member>
-        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Post(Api.Commands.CreateProjectCommand)">
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Post(ProjectManagement.Api.Commands.CreateProjectCommand)">
             <summary>
             Create a new Project Aggregate with all the required information
             </summary>
-            <param name="command">The command of type <see cref="T:Api.Commands.CreateProjectCommand"/> used to create the Project</param>
+            <param name="command">The command of type <see cref="T:ProjectManagement.Api.Commands.CreateProjectCommand"/> used to create the Project</param>
         </member>
     </members>
 </doc>

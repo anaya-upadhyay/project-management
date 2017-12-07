@@ -21,15 +21,15 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
             {
                 using (var tx = uow.BeginTransaction())
                 {
-                    using (var repo = uow.CreateRepository<DonorAggregate>())
+                    using (var repo = uow.CreateRepository())
                     {
                         repo.Add(donor);
                     }
-                    using (var repo = uow.CreateRepository<Person>())
+                    using (var repo = uow.CreateRepository())
                     {
                         repo.Add(analyst);
                     }
-                    using (var repo = uow.CreateRepository<ProjectAggregate>())
+                    using (var repo = uow.CreateRepository())
                     {
                         repo.Add(project);
                     }
@@ -39,8 +39,8 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
-                var repo = uow.CreateRepository<ProjectAggregate>();
-                var expected = repo.Get().Single(x => x.Id == project.Id);
+                var repo = uow.CreateRepository();
+                var expected = repo.Get<ProjectAggregate>().Single(x => x.Id == project.Id);
 
                 expected.Should().NotBeNull();
             }
@@ -57,15 +57,15 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
             {
                 using (var tx = uow.BeginTransaction())
                 {
-                    using (var repo = uow.CreateRepository<DonorAggregate>())
+                    using (var repo = uow.CreateRepository())
                     {
                         repo.Add(donor);
                     }
-                    using (var repo = uow.CreateRepository<Person>())
+                    using (var repo = uow.CreateRepository())
                     {
                         repo.Add(analyst);
                     }
-                    using (var repo = uow.CreateRepository<ProjectAggregate>())
+                    using (var repo = uow.CreateRepository())
                     {
                         repo.Add(project);
                     }
@@ -77,7 +77,7 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
             {
                 using (var tx = uow.BeginTransaction())
                 {
-                    using (var repo = uow.CreateRepository<ProjectAggregate>())
+                    using (var repo = uow.CreateRepository())
                     {
                         repo.Delete(project);
                     }

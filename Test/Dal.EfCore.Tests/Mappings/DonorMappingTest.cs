@@ -20,7 +20,7 @@ namespace Dal.EfCore.Tests.Mappings
             {
                 using (var tx = uow.BeginTransaction())
                 {
-                    using (var repo = uow.CreateRepository<DonorAggregate>())
+                    using (var repo = uow.CreateRepository())
                     {
                         repo.Add(donor);
                         tx.Commit();
@@ -30,8 +30,8 @@ namespace Dal.EfCore.Tests.Mappings
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
-                var repo = uow.CreateRepository<DonorAggregate>();
-                var expected = repo.Get().Single(x => x.Id == donor.Id);
+                var repo = uow.CreateRepository();
+                var expected = repo.Get<DonorAggregate>().Single(x => x.Id == donor.Id);
 
                 expected.Should().NotBeNull();
             }

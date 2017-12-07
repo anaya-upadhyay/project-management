@@ -33,11 +33,10 @@ namespace ProjectManagement.Dal.Nhb
         /// <summary>
         /// Create a new Repository with the Active database context
         /// </summary>
-        /// <typeparam name="TEntity">The Entity to be managed by this repository</typeparam>
         /// <returns>Returns an instance of an IRepository for the TEntity type</returns>
-        public IRepository<TEntity> CreateRepository<TEntity>() where TEntity : class
+        public IRepository CreateRepository()
         {
-            return new Repository<TEntity>(session);
+            return new Repository(session);
         }
 
         /// <summary>

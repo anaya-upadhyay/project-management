@@ -7,6 +7,7 @@
     {
         CustomizedSingle = 0,
         CustomizedMultifocus = 1,
-        TaPackage = 2
+        TaPackage = 2,
+        None = 99
     }
 }

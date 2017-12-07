@@ -1,4 +1,4 @@
-﻿namespace Api.Commands.Core
+﻿namespace ProjectManagement.Api.Commands.Core
 {
     /// <summary>
     /// Represents a CQRS Command contract

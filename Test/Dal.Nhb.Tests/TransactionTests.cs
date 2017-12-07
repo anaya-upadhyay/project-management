@@ -24,15 +24,15 @@ namespace ProjectManagement.Dal.Nhb.Tests
             {
                 using (ITransaction tx = uow.BeginTransaction())
                 {
-                    var repo = uow.CreateRepository<DonorAggregate>();
+                    var repo = uow.CreateRepository();
                     repo.Add(donor);
                     tx.Rollback();
                 }
             }
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
-                var repo = uow.CreateRepository<DonorAggregate>();
-                var expected = repo.Get().FirstOrDefault(x => x.Id == donor.Id);
+                var repo = uow.CreateRepository();
+                var expected = repo.Get<DonorAggregate>().FirstOrDefault(x => x.Id == donor.Id);
                 expected.Should().BeNull();
             }
         }
@@ -44,15 +44,15 @@ namespace ProjectManagement.Dal.Nhb.Tests
             {
                 using (ITransaction tx = uow.BeginTransaction())
                 {
-                    var repo = uow.CreateRepository<DonorAggregate>();
+                    var repo = uow.CreateRepository();
                     repo.Add(donor);
                     tx.Commit();
                 }
             }
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
-                var repo = uow.CreateRepository<DonorAggregate>();
-                var expected = repo.Get().FirstOrDefault(x => x.Id == donor.Id);
+                var repo = uow.CreateRepository();
+                var expected = repo.Get<DonorAggregate>().FirstOrDefault(x => x.Id == donor.Id);
                 expected.Should().NotBeNull();
             }
         }

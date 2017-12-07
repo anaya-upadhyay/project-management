@@ -19,7 +19,7 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
             {
                 using (var tx = uow.BeginTransaction())
                 {
-                    using (var repo = uow.CreateRepository<Analyst>())
+                    using (var repo = uow.CreateRepository())
                     {
                         repo.Add(analyst);
                         tx.Commit();
@@ -29,8 +29,8 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
             {
-                var repo = uow.CreateRepository<Analyst>();
-                var expected = repo.Get().Single(x => x.Id == analyst.Id);
+                var repo = uow.CreateRepository();
+                var expected = repo.Get<Analyst>().Single(x => x.Id == analyst.Id);
 
                 expected.Should().NotBeNull();
             }

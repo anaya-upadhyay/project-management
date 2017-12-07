@@ -6,8 +6,7 @@ namespace ProjectManagement.Dal.Nhb
     /// <summary>
     /// A Repository using the underlying NHibernate
     /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
-    public sealed class Repository<TEntity> : IRepository<TEntity>
+    public sealed class Repository : IRepository
     {
         /// <summary>
         /// The underlying NHibernate session
@@ -24,29 +23,32 @@ namespace ProjectManagement.Dal.Nhb
             // do nothing because the parent uow should dispose the session
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Add an Entity to the NHibernate Session
         /// </summary>
         /// <param name="entity">The Entity to be added</param>
-        public void Add(TEntity entity)
+        public void Add<TEntity>(TEntity entity) where TEntity : class
         {
             session.Save(entity);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Delete an Entity from the NHibernate Session
         /// </summary>
         /// <param name="entity">The Entity to be deleted</param>
-        public void Delete(TEntity entity)
+        public void Delete<TEntity>(TEntity entity) where TEntity : class
         {
             session.Delete(entity);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Return an IQueryable of TEntity
         /// </summary>
         /// <returns>Return an IQueryable of TEntity</returns>
-        public IQueryable<TEntity> Get()
+        public IQueryable<TEntity> Get<TEntity>() where TEntity : class
         {
             return session.Query<TEntity>();
         }

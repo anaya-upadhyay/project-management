@@ -43,9 +43,9 @@ namespace ProjectManagement.Dal.EfCore
         /// </summary>
         /// <typeparam name="TEntity">The Entity to be managed by this repository</typeparam>
         /// <returns>Returns an instance of an IRepository for the TEntity type</returns>
-        public IRepository<TEntity> CreateRepository<TEntity>() where TEntity : class
+        public IRepository CreateRepository()
         {
-            return new Repository<TEntity>(context);
+            return new Repository(context);
         }
     }
 }
