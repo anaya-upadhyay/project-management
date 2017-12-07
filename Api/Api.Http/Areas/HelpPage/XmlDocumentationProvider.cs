@@ -26,14 +26,14 @@ namespace Api.Http.Areas.HelpPage
         /// <summary>
         /// Initializes a new instance of the <see cref="XmlDocumentationProvider"/> class.
         /// </summary>
-        /// <param name="documentPath">The physical path to XML document.</param>
+        /// <param name="appDataPath">The physical path to XML document.</param>
         public XmlDocumentationProvider(string appDataPath)
         {
             if (appDataPath == null)
             {
                 throw new ArgumentNullException("appDataPath");
             }
-            var files = new[] { "ApiDocumentation.xml", "DomainDocumentation.xml" };
+            var files = new[] { "ApiDocumentation.xml", "DomainDocumentation.xml", "CommandsDocumentation.xml" };
             foreach (var file in files)
             {
                 XPathDocument xpath = new XPathDocument(Path.Combine(appDataPath, file));

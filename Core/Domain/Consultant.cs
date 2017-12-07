@@ -7,7 +7,6 @@
         /// </summary>
         private Consultant()
         {
-            
         }
 
         /// <inheritdoc />

@@ -479,39 +479,45 @@
             <summary>
             Initializes a new instance of the <see cref="T:Api.Http.Areas.HelpPage.XmlDocumentationProvider"/> class.
             </summary>
-            <param name="documentPath">The physical path to XML document.</param>
+            <param name="appDataPath">The physical path to XML document.</param>
         </member>
-        <member name="T:Api.Http.Controllers.ProjectsController">
+        <member name="T:ProjectManagement.Api.Http.Controllers.ProjectsController">
             <summary>
                 Provide APIs to interact with a Project Root Aggregate
             </summary>
         </member>
-        <member name="M:Api.Http.Controllers.ProjectsController.Get">
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Get">
             <summary>
                 Returns a list of Projects without any children value object
             </summary>
             <returns>Returns a list of flattern Project aggregates</returns>
         </member>
-        <member name="M:Api.Http.Controllers.ProjectsController.Get(System.Guid)">
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Get(System.Guid)">
             <summary>
                 Return a specific Project Aggregate including its children value objects
             </summary>
             <param name="projectId">The Unique Id of the Project</param>
             <returns>Return an object of type <see cref="T:ProjectManagement.Domain.ProjectAggregate" /></returns>
         </member>
-        <member name="M:Api.Http.Controllers.ProjectsController.GetAnalyst(System.Guid)">
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.GetAnalyst(System.Guid)">
             <summary>
             Return the Analyst assigned to the project
             </summary>
             <param name="projectId">The Unique Id of the Project</param>
             <returns>Return an object of type <see cref="T:ProjectManagement.Domain.Analyst"/></returns>
         </member>
-        <member name="M:Api.Http.Controllers.ProjectsController.Delete(System.Guid)">
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Delete(System.Guid)">
             <summary>
             Deactivate a Project and mark it as deleted
             </summary>
             <param name="projectId">The Unique Id of the Project</param>
             <remarks>The Project is not physically deleted, but de-activated</remarks>
+        </member>
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Post(Api.Commands.CreateProjectCommand)">
+            <summary>
+            Create a new Project Aggregate with all the required information
+            </summary>
+            <param name="command">The command of type <see cref="T:Api.Commands.CreateProjectCommand"/> used to create the Project</param>
         </member>
     </members>
 </doc>

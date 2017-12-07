@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using Api.Commands;
 using ProjectManagement.Domain;
 
-namespace Api.Http.Controllers
+namespace ProjectManagement.Api.Http.Controllers
 {
     /// <summary>
     ///     Provide APIs to interact with a Project Root Aggregate
@@ -54,7 +55,16 @@ namespace Api.Http.Controllers
         [Route("projects/{projectId}")]
         public void Delete(Guid projectId)
         {
-            
+        }
+
+        /// <summary>
+        /// Create a new Project Aggregate with all the required information
+        /// </summary>
+        /// <param name="command">The command of type <see cref="CreateProjectCommand"/> used to create the Project</param>
+        [HttpPost]
+        [Route("projects")]
+        public void Post(CreateProjectCommand command)
+        {
         }
     }
 }

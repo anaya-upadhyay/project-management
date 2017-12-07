@@ -13,14 +13,12 @@ namespace ProjectManagement.Domain
         /// </summary>
         private Analyst()
         {
-            
         }
 
         /// <inheritdoc />
-        public Analyst(string firstName, string lastName) 
+        public Analyst(string firstName, string lastName)
             : base(firstName, lastName)
         {
-
         }
     }
 }

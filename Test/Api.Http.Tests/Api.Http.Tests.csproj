@@ -109,7 +109,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Api\Api.Http\Api.Http.csproj">
+    <ProjectReference Include="..\..\Api\Api.Http\Api.Http.csproj">
       <Project>{2D3B299D-66DD-48E4-A0B5-64904B0EDEF1}</Project>
       <Name>Api.Http</Name>
     </ProjectReference>

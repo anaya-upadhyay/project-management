@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProjectManagement.Api.Commands</name>
+    </assembly>
+    <members>
+        <member name="T:Api.Commands.CreateProjectCommand">
+            <inheritdoc />
+            <summary>
+                Create a new Project Root Aggregate
+            </summary>
+        </member>
+        <member name="M:Api.Commands.CreateProjectCommand.#ctor(System.Guid,System.Guid,System.String,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+                Create a new Project Root Aggregate
+            </summary>
+            <param name="donorId">The Unique Id of the Donor which disbursed the money for the Project</param>
+            <param name="analystId">The Unique Id of the Analyst assigned to the Project</param>
+            <param name="acronym">The Acronym of the Project</param>
+            <param name="projectType">The Type of Project</param>
+            <param name="tenderProcessType">The Tender Process Type</param>
+            <param name="startDate">The eventual start date</param>
+        </member>
+        <member name="P:Api.Commands.CreateProjectCommand.DonorId">
+            <summary>
+                The Unique Id of the Donor which disbursed the money for the Project
+            </summary>
+        </member>
+        <member name="P:Api.Commands.CreateProjectCommand.AnalystId">
+            <summary>
+                The Unique Id of the Analyst assigned to the Project
+            </summary>
+        </member>
+        <member name="P:Api.Commands.CreateProjectCommand.Acronym">
+            <summary>
+                The Acronym of the Project
+            </summary>
+        </member>
+        <member name="P:Api.Commands.CreateProjectCommand.ProjectType">
+            <summary>
+                The Type of Project
+            </summary>
+        </member>
+        <member name="P:Api.Commands.CreateProjectCommand.TenderProcessType">
+            <summary>
+                The Tender Process Type
+            </summary>
+        </member>
+        <member name="P:Api.Commands.CreateProjectCommand.StartDate">
+            <summary>
+                The eventual start date
+            </summary>
+        </member>
+        <member name="T:Api.Commands.Core.ICommand">
+            <summary>
+            Represents a CQRS Command contract
+            </summary>
+        </member>
+    </members>
+</doc>

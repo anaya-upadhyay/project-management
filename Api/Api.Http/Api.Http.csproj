@@ -180,7 +180,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -244,6 +244,10 @@
     <ProjectReference Include="..\..\Core\Domain\Domain.csproj">
       <Project>{30756d8f-9882-4110-ae3e-21213b88373b}</Project>
       <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Api.Commands\Api.Commands.csproj">
+      <Project>{8CEDF155-39E6-4B88-B1F4-111905903C73}</Project>
+      <Name>Api.Commands</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
