@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using ProjectManagement.Api.Buses.Commands;
 using ProjectManagement.Api.Commands;
 using ProjectManagement.Domain;
 
@@ -11,50 +13,17 @@ namespace ProjectManagement.Api.Http.Controllers
     /// </summary>
     public class ProjectsController : ApiController
     {
-        /// <summary>
-        ///     Returns a list of Projects without any children value object
-        /// </summary>
-        /// <returns>Returns a list of flattern Project aggregates</returns>
-        [HttpGet]
-        [Route("projects")]
-        public IEnumerable<ProjectAggregate> Get()
-        {
-            return null;
-        }
 
-        /// <summary>
-        ///     Return a specific Project Aggregate including its children value objects
-        /// </summary>
-        /// <param name="projectId">The Unique Id of the Project</param>
-        /// <returns>Return an object of type <see cref="ProjectAggregate" /></returns>
-        [HttpGet]
-        [Route("projects/{projectId}")]
-        public ProjectAggregate Get(Guid projectId)
-        {
-            return null;
-        }
+        private readonly ICommandBus commandBus;
 
+        /// <inheritdoc />
         /// <summary>
-        /// Return the Analyst assigned to the project
+        /// Create a new Instance of a Projects Controller with the injected services
         /// </summary>
-        /// <param name="projectId">The Unique Id of the Project</param>
-        /// <returns>Return an object of type <see cref="Analyst"/></returns>
-        [HttpGet]
-        [Route("projects/{projectId}/analyst")]
-        public Analyst GetAnalyst(Guid projectId)
+        /// <param name="commandBus">The Current configured Command Bus</param>
+        public ProjectsController(ICommandBus commandBus)
         {
-            return null;
-        }
-
-        /// <summary>
-        /// Deactivate a Project and mark it as deleted
-        /// </summary>
-        /// <param name="projectId">The Unique Id of the Project</param>
-        /// <remarks>The Project is not physically deleted, but de-activated</remarks>
-        [HttpDelete]
-        [Route("projects/{projectId}")]
-        public void Delete(Guid projectId)
-        {
+            this.commandBus = commandBus;
         }
 
         /// <summary>
@@ -63,8 +32,22 @@ namespace ProjectManagement.Api.Http.Controllers
         /// <param name="command">The command of type <see cref="CreateProjectCommand"/> used to create the Project</param>
         [HttpPost]
         [Route("projects")]
-        public void Post(CreateProjectCommand command)
+        public IHttpActionResult Post(CreateProjectCommand command)
         {
+            var errors = commandBus.Validate(command);
+
+            foreach (var error in errors)
+            {
+                ModelState.AddModelError(error.Name, error.Reason);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = commandBus.Submit(command);
+            return Ok(result);
         }
     }
 }

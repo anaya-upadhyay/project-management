@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8CEDF155-39E6-4B88-B1F4-111905903C73}</ProjectGuid>
+    <ProjectGuid>{75C5ECD4-3064-40BA-8BC6-5FD342F0DABC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectManagement.Api.Commands</RootNamespace>
-    <AssemblyName>ProjectManagement.Api.Commands</AssemblyName>
+    <RootNamespace>ProjectManagement.Api.Buses</RootNamespace>
+    <AssemblyName>ProjectManagement.Api.Buses</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,7 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>App_Data/CommandsDocumentation.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,15 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateProjectCommand.cs" />
-    <Compile Include="Core\ICommand.cs" />
+    <Compile Include="Commands\DefaultCommandBus.cs" />
+    <Compile Include="Commands\ICommandBus.cs" />
+    <Compile Include="Commands\ICommandHandlerFactory.cs" />
+    <Compile Include="Commands\IValidatorFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Api.Commands\Api.Commands.csproj">
+      <Project>{8CEDF155-39E6-4B88-B1F4-111905903C73}</Project>
+      <Name>Api.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Api.Handlers\Api.Handlers.csproj">
+      <Project>{705FEDF6-334B-4682-A9C6-8241AB215F2E}</Project>
+      <Name>Api.Handlers</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(SolutionDir)Api\Api.Commands\App_Data\CommandsDocumentation.xml" "$(SolutionDir)Api\Api.Http\App_Data\CommandsDocumentation.xml"</PostBuildEvent>
-  </PropertyGroup>
 </Project>

@@ -486,32 +486,12 @@
                 Provide APIs to interact with a Project Root Aggregate
             </summary>
         </member>
-        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Get">
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.#ctor(ProjectManagement.Api.Buses.Commands.ICommandBus)">
+            <inheritdoc />
             <summary>
-                Returns a list of Projects without any children value object
+            Create a new Instance of a Projects Controller with the injected services
             </summary>
-            <returns>Returns a list of flattern Project aggregates</returns>
-        </member>
-        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Get(System.Guid)">
-            <summary>
-                Return a specific Project Aggregate including its children value objects
-            </summary>
-            <param name="projectId">The Unique Id of the Project</param>
-            <returns>Return an object of type <see cref="T:ProjectManagement.Domain.ProjectAggregate" /></returns>
-        </member>
-        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.GetAnalyst(System.Guid)">
-            <summary>
-            Return the Analyst assigned to the project
-            </summary>
-            <param name="projectId">The Unique Id of the Project</param>
-            <returns>Return an object of type <see cref="T:ProjectManagement.Domain.Analyst"/></returns>
-        </member>
-        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Delete(System.Guid)">
-            <summary>
-            Deactivate a Project and mark it as deleted
-            </summary>
-            <param name="projectId">The Unique Id of the Project</param>
-            <remarks>The Project is not physically deleted, but de-activated</remarks>
+            <param name="commandBus">The Current configured Command Bus</param>
         </member>
         <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Post(ProjectManagement.Api.Commands.CreateProjectCommand)">
             <summary>
