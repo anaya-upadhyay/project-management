@@ -1,13 +1,20 @@
-﻿using System.Web.Http;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Web.Http;
 
-namespace Api.Http
+namespace ProjectManagement.Api.Http
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    [ExcludeFromCodeCoverage]
     public static class WebApiConfig
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
             // Web API routes
             config.MapHttpAttributeRoutes();
 

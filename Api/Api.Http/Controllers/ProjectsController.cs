@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
 using ProjectManagement.Api.Buses.Commands;
 using ProjectManagement.Api.Commands;
-using ProjectManagement.Domain;
+using ProjectManagement.Api.Handlers.Core;
 
 namespace ProjectManagement.Api.Http.Controllers
 {
@@ -13,12 +11,11 @@ namespace ProjectManagement.Api.Http.Controllers
     /// </summary>
     public class ProjectsController : ApiController
     {
-
         private readonly ICommandBus commandBus;
 
         /// <inheritdoc />
         /// <summary>
-        /// Create a new Instance of a Projects Controller with the injected services
+        ///     Create a new Instance of a Projects Controller with the injected services
         /// </summary>
         /// <param name="commandBus">The Current configured Command Bus</param>
         public ProjectsController(ICommandBus commandBus)
@@ -27,16 +24,16 @@ namespace ProjectManagement.Api.Http.Controllers
         }
 
         /// <summary>
-        /// Create a new Project Aggregate with all the required information
+        ///     Create a new Project Aggregate with all the required information
         /// </summary>
-        /// <param name="command">The command of type <see cref="CreateProjectCommand"/> used to create the Project</param>
+        /// <param name="command">The command of type <see cref="CreateProjectCommand" /> used to create the Project</param>
         [HttpPost]
         [Route("projects")]
         public IHttpActionResult Post(CreateProjectCommand command)
         {
             var errors = commandBus.Validate(command);
 
-            foreach (var error in errors)
+            foreach (var error in errors ?? Enumerable.Empty<ValidationResult>())
             {
                 ModelState.AddModelError(error.Name, error.Reason);
             }

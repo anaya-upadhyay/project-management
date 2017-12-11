@@ -4,6 +4,67 @@
         <name>ProjectManagement.Api.Http</name>
     </assembly>
     <members>
+        <member name="T:ProjectManagement.Api.Http.FilterConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Api.Http.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)">
+            <summary>
+            
+            </summary>
+            <param name="filters"></param>
+        </member>
+        <member name="T:ProjectManagement.Api.Http.RouteConfig">
+            <summary>
+            Configure the default routes for the MVC part
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Api.Http.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)">
+            <summary>
+            Register the routes to the collection of MVC routes served by IIS
+            </summary>
+            <param name="routes"></param>
+        </member>
+        <member name="T:ProjectManagement.Api.Http.WebApiConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Api.Http.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:ProjectManagement.Api.Http.Controllers.ProjectsController">
+            <summary>
+                Provide APIs to interact with a Project Root Aggregate
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.#ctor(ProjectManagement.Api.Buses.Commands.ICommandBus)">
+            <inheritdoc />
+            <summary>
+                Create a new Instance of a Projects Controller with the injected services
+            </summary>
+            <param name="commandBus">The Current configured Command Bus</param>
+        </member>
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Post(ProjectManagement.Api.Commands.CreateProjectCommand)">
+            <summary>
+                Create a new Project Aggregate with all the required information
+            </summary>
+            <param name="command">The command of type <see cref="T:ProjectManagement.Api.Commands.CreateProjectCommand" /> used to create the Project</param>
+        </member>
+        <member name="T:ProjectManagement.Api.Http.WebApiApplication">
+            <inheritdoc />
+            <summary>
+            </summary>
+        </member>
+        <member name="M:ProjectManagement.Api.Http.WebApiApplication.Application_Start">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Api.Http.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
             <summary>
             Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
@@ -480,24 +541,6 @@
             Initializes a new instance of the <see cref="T:Api.Http.Areas.HelpPage.XmlDocumentationProvider"/> class.
             </summary>
             <param name="appDataPath">The physical path to XML document.</param>
-        </member>
-        <member name="T:ProjectManagement.Api.Http.Controllers.ProjectsController">
-            <summary>
-                Provide APIs to interact with a Project Root Aggregate
-            </summary>
-        </member>
-        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.#ctor(ProjectManagement.Api.Buses.Commands.ICommandBus)">
-            <inheritdoc />
-            <summary>
-            Create a new Instance of a Projects Controller with the injected services
-            </summary>
-            <param name="commandBus">The Current configured Command Bus</param>
-        </member>
-        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Post(ProjectManagement.Api.Commands.CreateProjectCommand)">
-            <summary>
-            Create a new Project Aggregate with all the required information
-            </summary>
-            <param name="command">The command of type <see cref="T:ProjectManagement.Api.Commands.CreateProjectCommand"/> used to create the Project</param>
         </member>
     </members>
 </doc>
