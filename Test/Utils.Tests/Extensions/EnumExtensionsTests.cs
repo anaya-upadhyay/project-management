@@ -4,6 +4,7 @@ using ProjectManagement.Utils.Extensions;
 
 namespace ProjectManagement.Utils.Tests.Extensions
 {
+    [TestCategory("Utils")]
     [TestClass]
     public class EnumExtensionsTests
     {

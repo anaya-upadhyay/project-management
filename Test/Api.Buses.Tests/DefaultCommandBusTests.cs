@@ -8,6 +8,7 @@ using ProjectManagement.Api.Handlers.Core;
 
 namespace ProjectManagement.Api.Buses.Tests
 {
+    [TestCategory("Api.Buses")]
     [TestClass]
     public class DefaultCommandBusTests
     {

@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ProjectManagement.Api.Commands.Tests
 {
+    [TestCategory("Api.Commands")]
     [TestClass]
     public class CreateProjectCommandTests
     {

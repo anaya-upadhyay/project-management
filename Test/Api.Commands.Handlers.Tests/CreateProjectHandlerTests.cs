@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Linq;
-using System.Transactions;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using ProjectManagement.Api.Commands;
+using ProjectManagement.Api.Handlers;
 using ProjectManagement.Dal;
 using ProjectManagement.Domain;
 
-namespace ProjectManagement.Api.Handlers.Tests
+namespace ProjectManagement.Api.Commands.Handlers.Tests
 {
+    [TestCategory("Api.Commands.Handlers")]
     [TestClass]
     public class CreateProjectHandlerTests
     {

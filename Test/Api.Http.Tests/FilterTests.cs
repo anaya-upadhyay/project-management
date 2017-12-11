@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ProjectManagement.Api.Http.Tests
 {
+    [TestCategory("Api.Http")]
     [TestClass]
     public class FilterTests
     {

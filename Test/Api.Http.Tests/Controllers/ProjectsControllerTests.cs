@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -12,6 +11,7 @@ using ProjectManagement.Api.Handlers.Core;
 
 namespace ProjectManagement.Api.Http.Tests.Controllers
 {
+    [TestCategory("Api.Http")]
     [TestClass]
     public class ProjectsControllerTests
     {

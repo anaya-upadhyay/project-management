@@ -243,13 +243,13 @@
       <Project>{75C5ECD4-3064-40BA-8BC6-5FD342F0DABC}</Project>
       <Name>Api.Buses</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Api.Commands.Handlers\Api.Commands.Handlers.csproj">
+      <Project>{705FEDF6-334B-4682-A9C6-8241AB215F2E}</Project>
+      <Name>Api.Commands.Handlers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Api.Commands\Api.Commands.csproj">
       <Project>{8CEDF155-39E6-4B88-B1F4-111905903C73}</Project>
       <Name>Api.Commands</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Api.Handlers\Api.Handlers.csproj">
-      <Project>{705FEDF6-334B-4682-A9C6-8241AB215F2E}</Project>
-      <Name>Api.Handlers</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

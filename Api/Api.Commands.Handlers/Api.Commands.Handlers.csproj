@@ -7,8 +7,8 @@
     <ProjectGuid>{705FEDF6-334B-4682-A9C6-8241AB215F2E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectManagement.Api.Handlers</RootNamespace>
-    <AssemblyName>ProjectManagement.Api.Handlers</AssemblyName>
+    <RootNamespace>ProjectManagement.Api.Commands.Handlers</RootNamespace>
+    <AssemblyName>ProjectManagement.Api.Commands.Handlers</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

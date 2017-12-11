@@ -4,6 +4,7 @@ using ProjectManagement.Api.Http.Controllers;
 
 namespace ProjectManagement.Api.Http.Tests.Controllers
 {
+    [TestCategory("Api.Http")]
     [TestClass]
     public class HomeControllerTests
     {

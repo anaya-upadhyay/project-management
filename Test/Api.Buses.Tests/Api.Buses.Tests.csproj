@@ -78,13 +78,13 @@
       <Project>{75C5ECD4-3064-40BA-8BC6-5FD342F0DABC}</Project>
       <Name>Api.Buses</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Api\Api.Commands.Handlers\Api.Commands.Handlers.csproj">
+      <Project>{705FEDF6-334B-4682-A9C6-8241AB215F2E}</Project>
+      <Name>Api.Commands.Handlers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Api\Api.Commands\Api.Commands.csproj">
       <Project>{8cedf155-39e6-4b88-b1f4-111905903c73}</Project>
       <Name>Api.Commands</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Api\Api.Handlers\Api.Handlers.csproj">
-      <Project>{705fedf6-334b-4682-a9c6-8241ab215f2e}</Project>
-      <Name>Api.Handlers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

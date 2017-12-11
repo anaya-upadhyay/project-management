@@ -7,6 +7,7 @@ using ProjectManagement.Domain;
 
 namespace ProjectManagement.Dal.Nhb.Tests.Mappings
 {
+    [TestCategory("Domain")]
     [TestClass]
     public class PersonTests : BaseTest
     {

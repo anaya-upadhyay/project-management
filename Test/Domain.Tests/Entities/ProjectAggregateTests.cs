@@ -117,5 +117,22 @@ namespace ProjectManagement.Domain.Tests.Entities
             expected.Should().Be(project);
         }
 
+        [TestMethod]
+        public void Should_NotBe_Deleted_When_Created()
+        {
+            ProjectAggregate expecAggregate = new ProjectAggregate(fakeDonor, fakeAnalyst, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
+
+            expecAggregate.IsDeleted.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void Should_Set_Deleted()
+        {
+            ProjectAggregate expecAggregate = new ProjectAggregate(fakeDonor, fakeAnalyst, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
+
+            expecAggregate.SetDeleted();
+
+            expecAggregate.IsDeleted.Should().BeTrue();
+        }
     }
 }
