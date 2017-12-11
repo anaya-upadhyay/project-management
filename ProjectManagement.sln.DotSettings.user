@@ -5,4 +5,5 @@
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/ContinuousTesting/Strategy/@EntryValue">RunTests</s:String>
 	<s:String x:Key="/Default/Environment/ContinuousTesting/TriggerMode/@EntryValue">OnSave</s:String>
-	<s:Int64 x:Key="/Default/Environment/ContinuousTestingSessionDescriptor/GroupingIndex/@EntryValue">5</s:Int64></wpf:ResourceDictionary>
+	<s:Int64 x:Key="/Default/Environment/ContinuousTestingSessionDescriptor/GroupingIndex/@EntryValue">5</s:Int64>
+	<s:Boolean x:Key="/Default/Environment/ContinuousTestingSessionDescriptor/TrackActiveElement/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>

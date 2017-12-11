@@ -2,6 +2,7 @@
 using ProjectManagement.Api.Handlers.Core;
 using Conditions;
 using ProjectManagement.Api.Commands.Core;
+using ProjectManagement.Api.Commands.Handlers.Core;
 
 namespace ProjectManagement.Api.Buses.Commands
 {

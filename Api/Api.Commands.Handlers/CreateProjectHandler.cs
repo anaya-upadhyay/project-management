@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using ProjectManagement.Api.Commands;
+using ProjectManagement.Api.Commands.Handlers.Core;
 using ProjectManagement.Api.Handlers.Core;
 using ProjectManagement.Dal;
 using ProjectManagement.Domain;

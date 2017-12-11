@@ -3,7 +3,7 @@
     /// <summary>
     /// Specialized query which provides also information about the Pagination parameters
     /// </summary>
-    public interface IQueryWithPagination : IQuery
+    public interface IQueryWithPagination<TResult> : IQuery<TResult>
     {
         /// <summary>
         /// The Current Page to be loaded

@@ -1,6 +1,6 @@
-﻿using ProjectManagement.Api.Commands.Core;
+﻿using ProjectManagement.Api.Handlers.Core;
 
-namespace ProjectManagement.Api.Handlers.Core
+namespace ProjectManagement.Api.Commands.Handlers.Core
 {
     /// <summary>
     /// Contract used to handle a specific command

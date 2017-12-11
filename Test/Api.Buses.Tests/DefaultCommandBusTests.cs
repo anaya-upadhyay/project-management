@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using ProjectManagement.Api.Buses.Commands;
 using ProjectManagement.Api.Buses.Tests.Mocks;
+using ProjectManagement.Api.Commands.Handlers.Core;
 using ProjectManagement.Api.Handlers.Core;
 
 namespace ProjectManagement.Api.Buses.Tests

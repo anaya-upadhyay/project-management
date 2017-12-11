@@ -1,11 +1,12 @@
 ﻿using ProjectManagement.Api.Queries.Core;
+using ProjectManagement.Api.Queries.Results;
 
 namespace ProjectManagement.Api.Queries
 {
     /// <summary>
     /// Search Projects using a Text expression which spans over multiple information
     /// </summary>
-    public sealed class SearchProjectsQuery : IQueryWithPagination
+    public sealed class SearchProjectsQuery : IQueryWithPagination<ProjectItemResult>, IQuery<IPaginatedResult<ProjectItemResult>>
     {
         /// <summary>
         /// Create a new instance of the Query and provides the required parameters

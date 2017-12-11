@@ -1,4 +1,5 @@
 ﻿using ProjectManagement.Api.Commands.Core;
+using ProjectManagement.Api.Commands.Handlers.Core;
 using ProjectManagement.Api.Handlers.Core;
 
 namespace ProjectManagement.Api.Buses.Commands
