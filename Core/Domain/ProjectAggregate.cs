@@ -5,6 +5,8 @@ using ProjectManagement.Domain.Events;
 
 namespace ProjectManagement.Domain
 {
+    /// <inheritdoc cref="IEntity" />
+    /// <inheritdoc cref="IDeletable" />
     /// <summary>
     ///     Represents a Project Aggregate
     /// </summary>
@@ -36,12 +38,16 @@ namespace ProjectManagement.Domain
 
             // initialization
             Id = Guid.NewGuid();
+            Status = Status.InPreparation;
             Donor = donor;
             Acronym = acronym;
             ProjectType = projectType;
             TenderProcessType = tenderProcessType;
             Analyst = analyst;
             ExpectedStartDate = startDate ?? DateTime.UtcNow;
+
+            // TODO
+            TierLevel = TierLevel.Tier1;
 
             // associations
             Donor.AssignProjectToDonor(this);
@@ -93,9 +99,20 @@ namespace ProjectManagement.Domain
             IsDeleted = true;
         }
 
+        /// <inheritdoc />
         /// <summary>
         ///     The Unique Id of the Project
         /// </summary>
         public Guid Id { get; }
+
+        /// <summary>
+        /// The Current Status of the Project
+        /// </summary>
+        public Status Status { get; }
+
+        /// <summary>
+        /// The Tier Level of the Project, related to the Total Asset of the PLI involved in the Project
+        /// </summary>
+        public TierLevel TierLevel { get; }
     }
 }

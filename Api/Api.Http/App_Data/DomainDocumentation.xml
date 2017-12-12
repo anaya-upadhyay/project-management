@@ -14,8 +14,16 @@
                 For OR/M usage
             </summary>
         </member>
-        <member name="M:ProjectManagement.Domain.Analyst.#ctor(System.String,System.String)">
+        <member name="M:ProjectManagement.Domain.Analyst.#ctor(System.String,System.String,System.String)">
             <inheritdoc />
+        </member>
+        <member name="P:ProjectManagement.Domain.Analyst.Display">
+            <inheritdoc />
+        </member>
+        <member name="P:ProjectManagement.Domain.Analyst.Acronym">
+            <summary>
+            The Acronym used for each Analyst
+            </summary>
         </member>
         <member name="T:ProjectManagement.Domain.Consultant">
             <summary>
@@ -28,6 +36,9 @@
             </summary>
         </member>
         <member name="M:ProjectManagement.Domain.Consultant.#ctor(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:ProjectManagement.Domain.Consultant.Display">
             <inheritdoc />
         </member>
         <member name="T:ProjectManagement.Domain.Core.IDomainEvent">
@@ -144,7 +155,15 @@
                 The Unique Id of the Entity
             </summary>
         </member>
+        <member name="P:ProjectManagement.Domain.Person.Display">
+            <summary>
+            The Display Name used to display an instance of a Person
+            </summary>
+            <remarks>Overridden by the child class</remarks>
+        </member>
         <member name="T:ProjectManagement.Domain.ProjectAggregate">
+            <inheritdoc cref="T:ProjectManagement.Domain.Core.IEntity" />
+            <inheritdoc cref="T:ProjectManagement.Domain.Core.IDeletable" />
             <summary>
                 Represents a Project Aggregate
             </summary>
@@ -206,13 +225,79 @@
             </summary>
         </member>
         <member name="P:ProjectManagement.Domain.ProjectAggregate.Id">
+            <inheritdoc />
             <summary>
                 The Unique Id of the Project
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.Status">
+            <summary>
+            The Current Status of the Project
+            </summary>
+        </member>
+        <member name="P:ProjectManagement.Domain.ProjectAggregate.TierLevel">
+            <summary>
+            The Tier Level of the Project, related to the Total Asset of the PLI involved in the Project
             </summary>
         </member>
         <member name="T:ProjectManagement.Domain.TypeOfProject">
             <summary>
                 Represents one of the possible Project's type
+            </summary>
+        </member>
+        <member name="T:ProjectManagement.Domain.Status">
+            <summary>
+            Represents the current status of a Project
+            </summary>
+        </member>
+        <member name="F:ProjectManagement.Domain.Status.InPreparation">
+            <summary>
+            When the Project is created in the Application
+            </summary>
+        </member>
+        <member name="F:ProjectManagement.Domain.Status.InProgress">
+            <summary>
+            When TAFE started the discussion
+            </summary>
+        </member>
+        <member name="F:ProjectManagement.Domain.Status.Approved">
+            <summary>
+            TAFC or TAF Manager have approved the Project
+            </summary>
+        </member>
+        <member name="F:ProjectManagement.Domain.Status.OnGoing">
+            <summary>
+            Consultant has signed the contract
+            </summary>
+        </member>
+        <member name="F:ProjectManagement.Domain.Status.Completed">
+            <summary>
+            The TA Project completed and got green light from TAFE
+            </summary>
+        </member>
+        <member name="F:ProjectManagement.Domain.Status.Closed">
+            <summary>
+            The Consultant has been fully paid and PLI paid
+            </summary>
+        </member>
+        <member name="T:ProjectManagement.Domain.TierLevel">
+            <summary>
+            Represents the Tier Level of a Project, assigned depending on the budget of the project
+            </summary>
+        </member>
+        <member name="F:ProjectManagement.Domain.TierLevel.Tier1">
+            <summary>
+            If the Insitution size is over 30M
+            </summary>
+        </member>
+        <member name="F:ProjectManagement.Domain.TierLevel.Tier2">
+            <summary>
+            If the Institution size is between 10M and 30M
+            </summary>
+        </member>
+        <member name="F:ProjectManagement.Domain.TierLevel.Tier3">
+            <summary>
+            If the Institution size is less than 10M
             </summary>
         </member>
     </members>

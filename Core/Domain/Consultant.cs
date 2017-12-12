@@ -17,5 +17,8 @@
             : base(firstName, lastName)
         {
         }
+
+        /// <inheritdoc />
+        public override string Display => $"{LastName}, {FirstName}";
     }
 }

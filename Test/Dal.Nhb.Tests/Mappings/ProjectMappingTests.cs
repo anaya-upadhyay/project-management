@@ -14,7 +14,7 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
         public void Should_Save_New_Project()
         {
             var donor = new DonorAggregate("My Donor");
-            var analyst = new Analyst("firstName", "lastName");
+            var analyst = new Analyst("firstName", "lastName", "acronym");
             var project = new ProjectAggregate(donor, analyst, "My Project", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))
@@ -50,7 +50,7 @@ namespace ProjectManagement.Dal.Nhb.Tests.Mappings
         public void Should_SoftDelete_A_Project_When_RemovedWithARepository()
         {
             var donor = new DonorAggregate("My Donor");
-            var analyst = new Analyst("firstName", "lastName");
+            var analyst = new Analyst("firstName", "lastName", "acronym");
             var project = new ProjectAggregate(donor, analyst, "My Project", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
 
             using (IUnitOfWork uow = new UnitOfWork(GetSession()))

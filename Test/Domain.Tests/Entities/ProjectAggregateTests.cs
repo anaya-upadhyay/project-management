@@ -17,7 +17,7 @@ namespace ProjectManagement.Domain.Tests.Entities
         public void Initialize()
         {
             fakeDonor = new DonorAggregate("some name");
-            fakeAnalyst = new Analyst("firstName", "lastName");
+            fakeAnalyst = new Analyst("firstName", "lastName", "acronym");
             expectedProject = new ProjectAggregate(fakeDonor, fakeAnalyst, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
         }
 
@@ -133,6 +133,14 @@ namespace ProjectManagement.Domain.Tests.Entities
             expecAggregate.SetDeleted();
 
             expecAggregate.IsDeleted.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void Should_SetStatus_ToInPreparation_When_Created()
+        {
+            ProjectAggregate expecAggregate = new ProjectAggregate(fakeDonor, fakeAnalyst, "acronym", TypeOfProject.TaPackage, TypeOfTenderProcess.NegotiatedProcedure);
+
+            expecAggregate.Status.Should().Be(Status.InPreparation);
         }
     }
 }

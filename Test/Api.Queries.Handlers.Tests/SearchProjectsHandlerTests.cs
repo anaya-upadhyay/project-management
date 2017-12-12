@@ -12,7 +12,7 @@ namespace ProjectManagement.Api.Queries.Handlers.Tests
     [TestClass]
     public class SearchProjectsHandlerTests
     {
-        private readonly Analyst fakeAnaylist = new Analyst("first name", "last name");
+        private readonly Analyst fakeAnaylist = new Analyst("first name", "last name", "acronym");
 
         private readonly DonorAggregate fakeDonor = new DonorAggregate("donor");
         private readonly SearchProjectsQuery fakeQuery = new SearchProjectsQuery("acronym", 1, 2);
@@ -100,10 +100,14 @@ namespace ProjectManagement.Api.Queries.Handlers.Tests
             var handler = new SearchProjectsHandler(mockUnitOfWork.Object);
 
             var result = handler.Handle(fakeQuery);
+            var item = result.Items[0];
 
             result.Items[0].Id.Should().NotBeEmpty();
             result.Items[0].Acronym.Should().Be("acronym");
-            result.Items[0].Donor.Should().Be("donor");
+            result.Items[0].Analyst.Should().Be("last name, first name (acronym)");
+            result.Items[0].Status.Should().Be("InPreparation");
+            result.Items[0].TierLevel.Should().Be("Tier1");
+
 
         }
     }

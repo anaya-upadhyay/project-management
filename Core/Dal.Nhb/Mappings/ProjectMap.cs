@@ -16,6 +16,7 @@ namespace ProjectManagement.Dal.Nhb.Mappings
             Map(x => x.ProjectType).Not.Nullable();
             Map(x => x.TenderProcessType).Not.Nullable();
             Map(x => x.ExpectedStartDate).Not.Nullable();
+            Map(x => x.Status).Not.Nullable();
 
             // soft delete
             Where("IsDeleted = 0");

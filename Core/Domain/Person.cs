@@ -47,5 +47,11 @@ namespace ProjectManagement.Domain
         ///     The Unique Id of the Entity
         /// </summary>
         public Guid Id { get; }
+
+        /// <summary>
+        /// The Display Name used to display an instance of a Person
+        /// </summary>
+        /// <remarks>Overridden by the child class</remarks>
+        public abstract string Display { get; }
     }
 }

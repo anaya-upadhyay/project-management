@@ -21,6 +21,8 @@ namespace ProjectManagement.Dal.Nhb.Mappings
         public AnalystMap()
         {
             DiscriminatorValue("Analyst");
+            Map(x => x.Acronym);
+            //Map(x => x.Display).ReadOnly();
         }
     }
 
@@ -28,7 +30,8 @@ namespace ProjectManagement.Dal.Nhb.Mappings
     {
         public ConsultantMap()
         {
-            DiscriminatorValue("Consultant");   
+            DiscriminatorValue("Consultant");
+            //Map(x => x.Display).ReadOnly();
         }
     }
 }

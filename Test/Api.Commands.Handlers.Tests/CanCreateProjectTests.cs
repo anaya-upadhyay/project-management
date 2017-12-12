@@ -24,7 +24,7 @@ namespace ProjectManagement.Api.Commands.Handlers.Tests
         public void Initialize()
         {
             // prepare the fakes
-            fakeAnalyst = new Analyst("fake", "fake");
+            fakeAnalyst = new Analyst("fake", "fake", "fake");
             fakeDonor = new DonorAggregate("fake");
             fakeCommand = new CreateProjectCommand(fakeDonor.Id, fakeAnalyst.Id, "acronym", "fake", "fake", DateTime.UtcNow);
 

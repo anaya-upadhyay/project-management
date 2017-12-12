@@ -34,7 +34,7 @@ namespace ProjectManagement.Api.Queries.Handlers
             var items = queryable
                 .Skip(query.Records * (query.Page - 1))
                 .Take(query.Records)
-                .Select(x => new ProjectItemResult(x.Id, x.Acronym, x.Donor.Name))
+                .Select(x => new ProjectItemResult(x.Id, x.Acronym, x.Analyst.Display, x.Status.ToString(), x.TierLevel.ToString()))
                 .ToArray();
 
             return new PaginatedResult<ProjectItemResult>(query.Page, queryable.Count(), items);
