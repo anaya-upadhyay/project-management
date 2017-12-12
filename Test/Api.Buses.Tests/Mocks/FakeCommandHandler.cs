@@ -4,7 +4,7 @@ using ProjectManagement.Api.Handlers.Core;
 
 namespace ProjectManagement.Api.Buses.Tests.Mocks
 {
-    public class FakeHandler : ICommandHandler<FakeCommand>
+    public class FakeCommandHandler : ICommandHandler<FakeCommand>
     {
         public ICommandResult Execute(FakeCommand command)
         {

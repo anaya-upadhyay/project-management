@@ -6,6 +6,7 @@ using ProjectManagement.Api.Buses.Commands;
 using ProjectManagement.Api.Buses.Tests.Mocks;
 using ProjectManagement.Api.Commands.Handlers.Core;
 using ProjectManagement.Api.Handlers.Core;
+using ProjectManagement.Api.Queries.Core;
 
 namespace ProjectManagement.Api.Buses.Tests
 {
@@ -13,9 +14,10 @@ namespace ProjectManagement.Api.Buses.Tests
     [TestClass]
     public class DefaultCommandBusTests
     {
-        private ICommandBus bus;
+        private IBus bus;
         private Mock<ICommandHandlerFactory> mockHandlerFactory;
         private Mock<IValidatorFactory> mockValidatorFactory;
+        private Mock<IQueryFactory> mockQueryFactory;
 
         [TestInitialize]
         public void Initialize()
@@ -23,22 +25,25 @@ namespace ProjectManagement.Api.Buses.Tests
             // initialization of mocks
             mockHandlerFactory = new Mock<ICommandHandlerFactory>();
             mockValidatorFactory = new Mock<IValidatorFactory>();
+            mockQueryFactory = new Mock<IQueryFactory>();
 
             mockHandlerFactory.Setup(x => x.BuildHandler<FakeCommand>())
-                .Returns(new FakeHandler());
+                .Returns(new FakeCommandHandler());
             mockHandlerFactory.Setup(x => x.BuildHandler<FakeNotImplementedCommand>())
                 .Returns(default(ICommandHandler<FakeNotImplementedCommand>));
             mockValidatorFactory.Setup(x => x.BuildValidator<FakeCommand>())
                 .Returns(new FakeValidator());
             mockValidatorFactory.Setup(x => x.BuildValidator<FakeNotImplementedCommand>())
                 .Returns(default(IValidationHandler<FakeNotImplementedCommand>));
+            mockQueryFactory.Setup(x => x.BuildHandler<FakeQuery, string>())
+                .Returns(new FakeQueryHandler());
 
-            bus = new DefaultCommandBus(mockHandlerFactory.Object, mockValidatorFactory.Object);
+            bus = new DefaultBus(mockHandlerFactory.Object, mockValidatorFactory.Object, mockQueryFactory.Object);
         }
 
 
         [TestMethod]
-        public void Should_ThrowException_When_Handler_IsNotAvailable()
+        public void Should_ThrowException_When_CommandHandler_IsNotAvailable()
         {
             Action action = () => bus.Submit(new FakeNotImplementedCommand());
 
@@ -53,6 +58,15 @@ namespace ProjectManagement.Api.Buses.Tests
 
             action.ShouldThrow<ArgumentNullException>()
                 .Which.ParamName.Equals(typeof(ICommandHandler<FakeNotImplementedCommand>).FullName);
+        }
+
+        [TestMethod]
+        public void Should_ThrowException_When_QueryHandler_IsNotAvailable()
+        {
+            Action action = () => bus.Query<FakeNotImplementedQuery, string>(new FakeNotImplementedQuery());
+
+            action.ShouldThrow<ArgumentNullException>()
+                .Which.ParamName.Equals(typeof(IQuery<string>).FullName);
         }
 
         [TestMethod]
@@ -85,6 +99,13 @@ namespace ProjectManagement.Api.Buses.Tests
         {
             var validation = bus.Validate(new FakeCommand());
             validation.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void Should_ExecuteQuery_When_Handler_IsAvailable()
+        {
+            var result = bus.Query<FakeQuery, string>(new FakeQuery());
+            result.Should().Be("Hello World");
         }
     }
 }

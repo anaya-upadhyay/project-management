@@ -1,8 +1,12 @@
 ﻿using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Description;
 using ProjectManagement.Api.Buses.Commands;
 using ProjectManagement.Api.Commands;
 using ProjectManagement.Api.Handlers.Core;
+using ProjectManagement.Api.Queries;
+using ProjectManagement.Api.Queries.Core;
+using ProjectManagement.Api.Queries.Results;
 
 namespace ProjectManagement.Api.Http.Controllers
 {
@@ -11,16 +15,16 @@ namespace ProjectManagement.Api.Http.Controllers
     /// </summary>
     public class ProjectsController : ApiController
     {
-        private readonly ICommandBus commandBus;
+        private readonly IBus bus;
 
         /// <inheritdoc />
         /// <summary>
         ///     Create a new Instance of a Projects Controller with the injected services
         /// </summary>
-        /// <param name="commandBus">The Current configured Command Bus</param>
-        public ProjectsController(ICommandBus commandBus)
+        /// <param name="bus">The Current configured Command Bus</param>
+        public ProjectsController(IBus bus)
         {
-            this.commandBus = commandBus;
+            this.bus = bus;
         }
 
         /// <summary>
@@ -28,10 +32,11 @@ namespace ProjectManagement.Api.Http.Controllers
         /// </summary>
         /// <param name="command">The command of type <see cref="CreateProjectCommand" /> used to create the Project</param>
         [HttpPost]
+        [ResponseType(typeof(SimpleCommandResult))]
         [Route("projects")]
         public IHttpActionResult Post(CreateProjectCommand command)
         {
-            var errors = commandBus.Validate(command);
+            var errors = bus.Validate(command);
 
             foreach (var error in errors ?? Enumerable.Empty<ValidationResult>())
             {
@@ -43,7 +48,21 @@ namespace ProjectManagement.Api.Http.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = commandBus.Submit(command);
+            var result = bus.Submit(command);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Search for Projects according to the Search Criteria and return a paginated result
+        /// </summary>
+        /// <param name="query">The <see cref="SearchProjectsQuery"/> query to be executed</param>
+        /// <returns>Returns a collection of <see cref="IPaginatedResult{ProjectItemResult}"/> result</returns>
+        [HttpGet]
+        [ResponseType(typeof(IPaginatedResult<ProjectItemResult>))]
+        [Route("projects")]
+        public IHttpActionResult Get(SearchProjectsQuery query)
+        {
+            var result = bus.Query<SearchProjectsQuery, IPaginatedResult<ProjectItemResult>>(query);
             return Ok(result);
         }
     }

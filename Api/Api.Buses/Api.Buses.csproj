@@ -43,9 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\DefaultCommandBus.cs" />
-    <Compile Include="Commands\ICommandBus.cs" />
+    <Compile Include="Commands\DefaultBus.cs" />
+    <Compile Include="Commands\IBus.cs" />
     <Compile Include="Commands\ICommandHandlerFactory.cs" />
+    <Compile Include="Commands\IQueryFactory.cs" />
     <Compile Include="Commands\IValidatorFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,6 +58,14 @@
     <ProjectReference Include="..\Api.Commands\Api.Commands.csproj">
       <Project>{8CEDF155-39E6-4B88-B1F4-111905903C73}</Project>
       <Name>Api.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Api.Queries.Handlers\Api.Queries.Handlers.csproj">
+      <Project>{A37EBFCC-9B6D-47D8-88D1-3EAEF61EA8AF}</Project>
+      <Name>Api.Queries.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Api.Queries\Api.Queries.csproj">
+      <Project>{52AB10D7-DF34-4DBD-A49C-B5E99317A159}</Project>
+      <Name>Api.Queries</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

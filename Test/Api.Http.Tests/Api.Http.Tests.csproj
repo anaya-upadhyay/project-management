@@ -127,6 +127,10 @@
       <Project>{2d3b299d-66dd-48e4-a0b5-64904b0edef1}</Project>
       <Name>Api.Http</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Api\Api.Queries\Api.Queries.csproj">
+      <Project>{52AB10D7-DF34-4DBD-A49C-B5E99317A159}</Project>
+      <Name>Api.Queries</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

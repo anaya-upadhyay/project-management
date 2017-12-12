@@ -251,6 +251,10 @@
       <Project>{8CEDF155-39E6-4B88-B1F4-111905903C73}</Project>
       <Name>Api.Commands</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Api.Queries\Api.Queries.csproj">
+      <Project>{52AB10D7-DF34-4DBD-A49C-B5E99317A159}</Project>
+      <Name>Api.Queries</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -42,18 +42,25 @@
                 Provide APIs to interact with a Project Root Aggregate
             </summary>
         </member>
-        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.#ctor(ProjectManagement.Api.Buses.Commands.ICommandBus)">
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.#ctor(ProjectManagement.Api.Buses.Commands.IBus)">
             <inheritdoc />
             <summary>
                 Create a new Instance of a Projects Controller with the injected services
             </summary>
-            <param name="commandBus">The Current configured Command Bus</param>
+            <param name="bus">The Current configured Command Bus</param>
         </member>
         <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Post(ProjectManagement.Api.Commands.CreateProjectCommand)">
             <summary>
                 Create a new Project Aggregate with all the required information
             </summary>
             <param name="command">The command of type <see cref="T:ProjectManagement.Api.Commands.CreateProjectCommand" /> used to create the Project</param>
+        </member>
+        <member name="M:ProjectManagement.Api.Http.Controllers.ProjectsController.Get(ProjectManagement.Api.Queries.SearchProjectsQuery)">
+            <summary>
+            Search for Projects according to the Search Criteria and return a paginated result
+            </summary>
+            <param name="query">The <see cref="T:ProjectManagement.Api.Queries.SearchProjectsQuery"/> query to be executed</param>
+            <returns>Returns a collection of <see cref="T:ProjectManagement.Api.Queries.Core.IPaginatedResult`1"/> result</returns>
         </member>
         <member name="T:ProjectManagement.Api.Http.WebApiApplication">
             <inheritdoc />

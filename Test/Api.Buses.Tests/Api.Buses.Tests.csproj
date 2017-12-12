@@ -65,8 +65,11 @@
   <ItemGroup>
     <Compile Include="DefaultCommandBusTests.cs" />
     <Compile Include="Mocks\FakeCommand.cs" />
-    <Compile Include="Mocks\FakeHandler.cs" />
+    <Compile Include="Mocks\FakeCommandHandler.cs" />
     <Compile Include="Mocks\FakeNotImplementedCommand.cs" />
+    <Compile Include="Mocks\FakeNotImplementedQuery.cs" />
+    <Compile Include="Mocks\FakeQuery.cs" />
+    <Compile Include="Mocks\FakeQueryHandler.cs" />
     <Compile Include="Mocks\FakeValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +88,14 @@
     <ProjectReference Include="..\..\Api\Api.Commands\Api.Commands.csproj">
       <Project>{8cedf155-39e6-4b88-b1f4-111905903c73}</Project>
       <Name>Api.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Api\Api.Queries.Handlers\Api.Queries.Handlers.csproj">
+      <Project>{A37EBFCC-9B6D-47D8-88D1-3EAEF61EA8AF}</Project>
+      <Name>Api.Queries.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Api\Api.Queries\Api.Queries.csproj">
+      <Project>{52AB10D7-DF34-4DBD-A49C-B5E99317A159}</Project>
+      <Name>Api.Queries</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
