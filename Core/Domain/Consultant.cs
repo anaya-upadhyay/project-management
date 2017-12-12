@@ -1,5 +1,8 @@
 ﻿namespace ProjectManagement.Domain
 {
+    /// <summary>
+    /// Represents a Consultant hired for one or more Projects
+    /// </summary>
     public sealed class Consultant : Person
     {
         /// <summary>

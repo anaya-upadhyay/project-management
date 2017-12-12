@@ -48,5 +48,8 @@
     <Compile Include="Results\ProjectItemResult.cs" />
     <Compile Include="SearchProjectsQuery.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagram.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

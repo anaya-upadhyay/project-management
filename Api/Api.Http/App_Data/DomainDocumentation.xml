@@ -4,6 +4,11 @@
         <name>ProjectManagement.Domain</name>
     </assembly>
     <members>
+        <member name="T:ProjectManagement.Domain.Analyst">
+            <summary>
+                Represents a Symbiotics Analyst employee
+            </summary>
+        </member>
         <member name="M:ProjectManagement.Domain.Analyst.#ctor">
             <summary>
                 For OR/M usage
@@ -11,6 +16,11 @@
         </member>
         <member name="M:ProjectManagement.Domain.Analyst.#ctor(System.String,System.String)">
             <inheritdoc />
+        </member>
+        <member name="T:ProjectManagement.Domain.Consultant">
+            <summary>
+            Represents a Consultant hired for one or more Projects
+            </summary>
         </member>
         <member name="M:ProjectManagement.Domain.Consultant.#ctor">
             <summary>
@@ -153,6 +163,7 @@
             <param name="acronym">The Acronym of the Project</param>
             <param name="projectType">The Type of Project</param>
             <param name="tenderProcessType">The Tender Process applied to the Project</param>
+            <param name="startDate">The estimated start date of the Project</param>
         </member>
         <member name="P:ProjectManagement.Domain.ProjectAggregate.TenderProcessType">
             <summary>

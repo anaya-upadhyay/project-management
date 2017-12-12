@@ -25,6 +25,7 @@ namespace ProjectManagement.Domain
         /// <param name="acronym">The Acronym of the Project</param>
         /// <param name="projectType">The Type of Project</param>
         /// <param name="tenderProcessType">The Tender Process applied to the Project</param>
+        /// <param name="startDate">The estimated start date of the Project</param>
         public ProjectAggregate(DonorAggregate donor, Analyst analyst, string acronym, TypeOfProject projectType,
             TypeOfTenderProcess tenderProcessType, DateTime? startDate = null)
         {

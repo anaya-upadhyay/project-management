@@ -9,7 +9,7 @@ namespace ProjectManagement.Api.Buses.Commands
     /// <summary>
     /// Synchronous Command Bus implementation
     /// </summary>
-    public class DefaultCommandBus : ICommandBus
+    public sealed class DefaultCommandBus : ICommandBus
     {
         private readonly ICommandHandlerFactory handlerFactory;
         private readonly IValidatorFactory validatorFactory;
